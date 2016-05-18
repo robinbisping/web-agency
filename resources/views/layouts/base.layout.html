@@ -1,19 +1,76 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 	<head>
 		{% block head %}
-			<link rel="stylesheet" href="style.css" />
+			<meta charset="utf-8" />
+			<meta http-equiv="x-ua-compatible" content="ie=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<title>{% block title %}Home{% endblock %} - My Webpage</title>
+			<link rel="stylesheet" href="./css/all.css" />
 		{% endblock %}
 	</head>
 	<body>
-		<div id="content">
-			{% block content %}{% endblock %}
-		</div>
-		<div id="footer">
-			{% block footer %}
-			&copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+		<header id="header">
+			{% block header %}
+				<h1>
+					<a href="{{ base_url }}">web-agency</a>
+				</h1>
+				<nav id="menu">
+					{% block navigation %}
+						<ul>
+							{% for menu in primary_menu %}
+								<li{% if menu.url == current_url %} class="active"{% endif %}>
+									<a href="{{ menu.url }}">{{ menu.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					{% endblock %}
+				</nav>
+
 			{% endblock %}
-		</div>
+		</header>
+		<section id="content">
+			{% block content %}{% endblock %}
+		</section>
+		<footer id="footer">
+			{% block footer %}
+				<div class="primary">
+					<div class="left">
+						<h4>Kontaktieren Sie uns</h4>
+						<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
+						<address>
+							<p>
+								USO-UCE-UCS<br>
+								Gerberngasse 39<br>
+								Postfach 87<br>
+								CH-3000 Bern 13
+							</p>
+							<p>
+								<a href="tel:0313981878" title="Telefonnummer">031 398 18 78</a><br>
+								<a href="mailto:info@uso.ch" title="E-Mail-Adresse">info@uso.ch</a>
+							</p>
+						</address>
+					</div>
+					<div class="right">
+						<h4>#gethyped #nofilter</h4>
+						<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
+						<ul id="social-media-menu">
+							<li>
+								<a href="#">
+									<i class="fa"></i>
+									<span class="sr-only">Facebook</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="secondary">
+					
+				</div>
+			{% endblock %}
+		</footer>
+		{% block scripts %}
+			<script src="./js/all.js"></script>
+		{% endblock %}
 	</body>
 </html>
