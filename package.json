@@ -5,6 +5,7 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "susy": "^2.2.12"
   }
 }
