@@ -1,0 +1,25 @@
+@import 'susy';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+@import 'font-awesome';
+
+$susy: (
+    global-box-sizing: border-box,
+    use-custom: (rem: true),
+    columns: 12,
+    gutters: (1/4),
+    debug: (
+        image: hide,
+        color: rgba(#66f, .25),
+        output: background,
+        toggle: top right,
+    )
+);
+
+body {
+    @include container(80em);
+    font-family: 'Open Sans', sans-serif;
+    background-color: black;
+}
+nav {
+    @include span(25%);
+}
