@@ -1,0 +1,9 @@
+# Composer
+vendor/
+
+# Node.js and NPM
+node_modules/
+npm-debug.log
+
+# Bower
+bower_components/
