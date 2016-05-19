@@ -1,7 +1,10 @@
+// Imports
+@import 'normalize';
 @import 'susy';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 @import 'font-awesome';
 
+// Grid configuration
 $susy: (
     global-box-sizing: border-box,
     use-custom: (rem: true),
@@ -15,10 +18,53 @@ $susy: (
     )
 );
 
+// White to black
+$white: #FFFFFF;            // 0%
+$alabaster: #FBFBFB;        // 1%
+$iron: #E6E7E8;             // 10%
+$silver-sand: #C7C8CA;      // 25%
+$oslo-grey: #939598;        // 50%
+$shuttle-grey: #636466;     // 75%
+$ship-grey: #414042;        // 90%
+$thunder: #262324;          // 99%
+$black: #000000;            // 100%
+
+// Colours
+$bright-turquoise: #00aeef;
+
+// Relative colours
+$primary-color: $bright-turquoise;
+$secondary-color: $silver-sand;
+
+// General styles
+
+// Structure
 body {
-    @include container(80em);
     font-family: 'Open Sans', sans-serif;
 }
+
+// Styles
 nav {
-    @include span(25%);
+    &#primary-menu {
+        background-color: $primary-color;
+        ul {
+            padding: 40px;
+            li {
+                list-style: none;
+                display: inline;
+                padding: 0 30px;
+                a {
+                    color: $white;
+                    font-weight: bold;
+                    text-decoration: none;
+                    &:hover {
+                        color: rgba($white, 0.5);
+                    }
+                }
+            }
+        }
+    }
+    &#secondary-menu {
+
+    }
 }
