@@ -15,9 +15,10 @@ var paths = {
 		views: './resources/views'
 	},
 	npm: {
-		susy: './node_modules/susy',
+		fontAwesome: './node_modules/font-awesome',
 		jquery: './node_modules/jquery',
-		fontAwesome: './node_modules/font-awesome'
+		normalize: './node_modules/normalize.css',
+		susy: './node_modules/susy'
 	},
 	public: './public'
 }
@@ -28,6 +29,7 @@ gulp.task('styles', function() {
 		.pipe(sourcemaps.init())
 		.pipe(sass({
 			includePaths: [
+				paths.npm.normalize,
 				paths.npm.susy + '/sass',
 				paths.npm.fontAwesome + '/scss'
 			]
