@@ -5,9 +5,11 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "browser-sync": "^2.12.8",
     "font-awesome": "^4.6.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-connect-php": "0.0.7",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
     "jquery": "^2.2.3",
