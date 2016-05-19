@@ -23,7 +23,7 @@ There are also some tools for user experience purposes embedded, like:
 - [jQuery](https://jquery.com/)
 - [Susy](http://susy.oddbird.net/)
 
-Please note that this package is not prepared for production yet. For example, you have to disable debugging manually and implement minifying scripts by yourself.
+Please note that this package is not fully prepared for production yet. For example, you have to disable debugging manually and implement minifying scripts by yourself.
 
 ## Prerequisites
 
