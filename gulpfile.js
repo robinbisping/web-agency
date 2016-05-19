@@ -2,11 +2,14 @@
 var gulp = require('gulp');
 
 // Load Plugins
-var browserSync = require('browser-sync'),
+var autoprefixer = require('gulp-autoprefixer'),
+	browserSync = require('browser-sync'),
+	cleanCSS = require('gulp-clean-css'),
 	concat = require('gulp-concat'),
 	connect = require('gulp-connect-php'),
 	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	uglify = require('gulp-uglify');
 
 // Paths
 var paths = {
@@ -37,16 +40,20 @@ gulp.task('styles', function() {
 			]
 		}).on('error', sass.logError))
 		.pipe(concat('all.css'))
+		.pipe(autoprefixer())
+		.pipe(cleanCSS({
+			keepSpecialComments: 0
+		}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.public + '/css'));
 });
-
 
 // Scripts
 gulp.task('scripts', function() {
 	return gulp.src([paths.npm.jquery + '/dist/jquery.js', paths.resources.assets + '/js/*.js'])
 		.pipe(sourcemaps.init())
 		.pipe(concat('all.js'))
+		.pipe(uglify())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.public + '/js'));
 });
