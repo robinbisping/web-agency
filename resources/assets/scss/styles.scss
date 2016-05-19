@@ -18,7 +18,6 @@ $susy: (
 body {
     @include container(80em);
     font-family: 'Open Sans', sans-serif;
-    background-color: black;
 }
 nav {
     @include span(25%);
