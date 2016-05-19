@@ -2,9 +2,11 @@
 var gulp = require('gulp');
 
 // Load Plugins
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync'),
+	concat = require('gulp-concat'),
+	connect = require('gulp-connect-php'),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps');
 
 // Paths
 var paths = {
@@ -32,7 +34,7 @@ gulp.task('styles', function() {
 		}).on('error', sass.logError))
 		.pipe(concat('all.css'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(paths.public + '/css'))
+		.pipe(gulp.dest(paths.public + '/css'));
 });
 
 
@@ -42,7 +44,7 @@ gulp.task('scripts', function() {
 		.pipe(sourcemaps.init())
 		.pipe(concat('all.js'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(paths.public + '/js'))
+		.pipe(gulp.dest(paths.public + '/js'));
 });
 
 // Fonts
@@ -53,10 +55,24 @@ gulp.task('fonts', function() {
 		.pipe(gulp.dest(paths.public + '/fonts'));
 });
 
+// Serve
+gulp.task('serve', function() {
+	connect.server({
+		base: 'public'
+	}, function (){
+		browserSync({
+			proxy: '127.0.0.1:8000'
+		});
+ 	});
+});
+
 // Watch
-gulp.task('watch', ['build'], function() {
-	gulp.watch(paths.src.assets + '/sass/*.scss', ['styles']);
-	gulp.watch(paths.src.assets + '/js/*.js', ['scripts']);
+gulp.task('watch', ['build', 'serve'], function() {
+	gulp.watch(paths.resources.assets + '/scss/*.scss', ['styles']);
+	gulp.watch(paths.resources.assets + '/js/*.js', ['scripts']);
+	gulp.watch(['**/*.php', paths.resources.views + '/**/*.html', paths.public + '/css/*.css', paths.public + '/js/*.js']).on('change', function () {
+		browserSync.reload();
+	});
 });
 
 // Build
