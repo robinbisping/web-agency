@@ -27,8 +27,8 @@ Please note that this package is not prepared for production yet. For example, y
 
 ## Prerequisites
 
-Firstly, you need to make sure that [PHP](https://secure.php.net/) and [Node.js](https://nodejs.org/) are installed on your computer. You can verify this by typing `php -v` and `node -v` in your command line. If a command can not be found, it is likely that the corresponding software is not installed. Simply download it from their websites and install it properly.
+Firstly, you need to make sure that [PHP](https://secure.php.net/) and [Node.js](https://nodejs.org/) are installed on your computer. You can verify this by typing `php -v` and `node -v` in your command line. If a command can not be found, it is likely that the corresponding software is not installed. Simply download it from their websites and install it.
 
-Secondly, you need to install two package managers, namely [Composer](https://getcomposer.org/) for PHP and [NPM](https://www.npmjs.com/) for Node.js. If you installed Node.js with an installer, NPM might already have been installed as well. You can verify it by typing `npm -v`. Use also the command `composer` to check if composer is already installed. If one of the commands can not be found, check out their websites in order to install them.
+Secondly, you need to install two package managers, namely [Composer](https://getcomposer.org/) for PHP and [NPM](https://www.npmjs.com/) for Node.js. If you installed Node.js with an installer, NPM might already have been installed as well. You can verify it by typing `npm -v`. Use also the command `composer` to check if composer is installed. If one of the commands can not be found, check out their websites in order to install the package managers.
 
 ## Installation
