@@ -15,6 +15,7 @@ var paths = {
 		views: './resources/views'
 	},
 	npm: {
+		breakpoint: './node_modules/breakpoint-sass',
 		fontAwesome: './node_modules/font-awesome',
 		jquery: './node_modules/jquery',
 		normalize: './node_modules/normalize.css',
@@ -30,6 +31,7 @@ gulp.task('styles', function() {
 		.pipe(sass({
 			includePaths: [
 				paths.npm.normalize,
+				paths.npm.breakpoint + '/stylesheets',
 				paths.npm.susy + '/sass',
 				paths.npm.fontAwesome + '/scss'
 			]

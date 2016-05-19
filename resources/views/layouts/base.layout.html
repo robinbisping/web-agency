@@ -12,21 +12,37 @@
 	<body>
 		<header id="header">
 			{% block header %}
-				<h1>
-					<a href="{{ base_url }}">web-agency</a>
-				</h1>
-				<nav id="primary-menu">
-					{% block navigation %}
-						<ul>
-							{% for menu in primary_menu %}
-								<li{% if menu.url == current_url %} class="active"{% endif %}>
-									<a href="{{ menu.url }}">{{ menu.title }}</a>
-								</li>
-							{% endfor %}
-						</ul>
-					{% endblock %}
-				</nav>
-
+				<section id="secondary-header">
+					<nav id="secondary-menu">
+						{% block secondary_menu %}
+							<ul>
+								{% for menu in secondary_menu %}
+									<li{% if menu.url == current_url %} class="active"{% endif %}>
+										<a href="{{ menu.url }}">{{ menu.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endblock %}
+					</nav>
+				</section>
+				<section id="primary-header">
+					<div class="container">
+						<h1>
+							<a href="{{ base_url }}">web-agency</a>
+						</h1>
+						<nav id="primary-menu">
+							{% block primary_menu %}
+								<ul>
+									{% for menu in primary_menu %}
+										<li{% if menu.url == current_url %} class="active"{% endif %}>
+											<a href="{{ menu.url }}">{{ menu.title }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endblock %}
+						</nav>
+					</div>
+				</section>
 			{% endblock %}
 		</header>
 		<section id="content">

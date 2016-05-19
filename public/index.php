@@ -30,6 +30,24 @@ $data['primary_menu'] = array(
 		'title' => 'Fotografie',
 		'url' => $data['base_url'] . 'fotografie'
 	),
+	array(
+		'title' => 'IT-Lösungen',
+		'url' => $data['base_url'] . 'it'
+	),
+);
+$data['secondary_menu'] = array(
+	array(
+		'title' => 'Home',
+		'url' => $data['base_url']
+	),
+	array(
+		'title' => 'Webdesign',
+		'url' => $data['base_url'] . 'webdesign'
+	),
+	array(
+		'title' => 'Fotografie',
+		'url' => $data['base_url'] . 'fotografie'
+	),
 );
 
 // Route all requests
