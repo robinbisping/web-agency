@@ -17,38 +17,6 @@ $twig = new Twig_Environment($loader, array(
 $data = array();
 $data['base_url'] = 'http://localhost:3000/';
 $data['current_url'] = $data['base_url'] . trim($_SERVER['REQUEST_URI'], '/');
-$data['primary_menu'] = array(
-	array(
-		'title' => 'Home',
-		'url' => $data['base_url']
-	),
-	array(
-		'title' => 'Webdesign',
-		'url' => $data['base_url'] . 'webdesign'
-	),
-	array(
-		'title' => 'Fotografie',
-		'url' => $data['base_url'] . 'fotografie'
-	),
-	array(
-		'title' => 'IT-Lösungen',
-		'url' => $data['base_url'] . 'it'
-	),
-);
-$data['secondary_menu'] = array(
-	array(
-		'title' => 'Home',
-		'url' => $data['base_url']
-	),
-	array(
-		'title' => 'Webdesign',
-		'url' => $data['base_url'] . 'webdesign'
-	),
-	array(
-		'title' => 'Fotografie',
-		'url' => $data['base_url'] . 'fotografie'
-	),
-);
 
 // Route all requests
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {

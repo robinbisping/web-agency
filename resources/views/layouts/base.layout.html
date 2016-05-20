@@ -12,37 +12,30 @@
 	<body>
 		<header id="header">
 			{% block header %}
-				<section id="secondary-header">
-					<nav id="secondary-menu">
-						{% block secondary_menu %}
+				<div class="container">
+					<h1 id="logo">
+						<a href="{{ base_url }}">web-agency</a>
+					</h1>
+					<nav id="primary-menu">
+						{% block primary_menu %}
 							<ul>
-								{% for menu in secondary_menu %}
+								{% set primary_menu = [
+									{'title': 'Home', 'url': base_url, 'classes': ''},
+									{'title': 'Webdesign', 'url': base_url ~ 'webdesign', 'classes': ''},
+									{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen', 'classes': ''},
+									{'title': 'Fotografie', 'url': base_url ~ 'fotografie', 'classes': ''},
+									{'title': 'IT-Lösungen', 'url': base_url ~ 'it'},
+									{'title': 'Kostenlose Offerte', 'url': base_url ~ 'offerte', 'classes': 'button'}
+								] %}
+								{% for menu in primary_menu %}
 									<li{% if menu.url == current_url %} class="active"{% endif %}>
-										<a href="{{ menu.url }}">{{ menu.title }}</a>
+										<a{% if menu.classes %} class="{{ menu.classes }}"{% endif %} href="{{ menu.url }}">{{ menu.title }}</a>
 									</li>
 								{% endfor %}
 							</ul>
 						{% endblock %}
 					</nav>
-				</section>
-				<section id="primary-header">
-					<div class="container">
-						<h1>
-							<a href="{{ base_url }}">web-agency</a>
-						</h1>
-						<nav id="primary-menu">
-							{% block primary_menu %}
-								<ul>
-									{% for menu in primary_menu %}
-										<li{% if menu.url == current_url %} class="active"{% endif %}>
-											<a href="{{ menu.url }}">{{ menu.title }}</a>
-										</li>
-									{% endfor %}
-								</ul>
-							{% endblock %}
-						</nav>
-					</div>
-				</section>
+				</div>
 			{% endblock %}
 		</header>
 		<section id="content">
@@ -50,37 +43,32 @@
 		</section>
 		<footer id="footer">
 			{% block footer %}
-				<div class="primary">
-					<div class="left">
-						<h4>Kontaktieren Sie uns</h4>
-						<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
-						<address>
-							<p>
-								web-agency<br>
-								Musterstrasse 123<br>
-								CH-1234 Musterdorf
-							</p>
-							<p>
-								<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
-								<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
-							</p>
-						</address>
-					</div>
-					<div class="right">
-						<h4>#gethyped #nofilter</h4>
-						<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
-						<ul id="social-media-menu">
-							<li>
-								<a href="#">
-									<i class="fa fa-facebook"></i>
-									<span class="sr-only">Facebook</span>
-								</a>
-							</li>
-						</ul>
-					</div>
+				<div class="left">
+					<h4>Kontaktieren Sie uns</h4>
+					<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
+					<address>
+						<p>
+							web-agency<br>
+							Musterstrasse 123<br>
+							CH-1234 Musterdorf
+						</p>
+						<p>
+							<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
+							<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
+						</p>
+					</address>
 				</div>
-				<div class="secondary">
-					
+				<div class="right">
+					<h4>#gethyped #nofilter</h4>
+					<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
+					<ul id="social-media-menu">
+						<li>
+							<a href="#">
+								<i class="fa fa-facebook"></i>
+								<span class="sr-only">Facebook</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 			{% endblock %}
 		</footer>

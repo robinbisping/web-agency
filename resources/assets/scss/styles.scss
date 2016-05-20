@@ -7,11 +7,11 @@
 
 // Grid configuration
 $susy: (
-  columns: 12,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: inside,
+	columns: 12,
+	gutters: 1/4,
+	math: fluid,
+	output: float,
+	gutter-position: inside,
 );
 
 // White to black
@@ -24,69 +24,70 @@ $ship-grey: #414042;        // 90%
 $black: #262324;            // 99%
 
 // Colours
-$bright-turquoise: #00aeef;
+$hot-cinnamon: #E65618;
+$picton-blue: #3990E6;
 
 // Relative colours
-$primary-color: $bright-turquoise;
-$secondary-color: $silver-sand;
+$primary-color: $hot-cinnamon;
+$secondary-color: $picton-blue;
 
 // General styles
 
 // Structure
 body {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 // Styles
 header {
-    ul {
-        margin: 0;
-    }
-    #primary-header {
-        .container {
-            @include container(70%);
-        }
-        background-color: $primary-color;
-        padding: 40px 0;
-        h1 {
-            float: left;
-            margin: 0;
-            a {
-                text-decoration: none;
-                color: $white;
-            }
-        }
-        nav {
-            &#primary-menu {
-                ul {
-                float: right;
-                    li {
-                        list-style: none;
-                        float: left;
-                        margin-left: 30px;
-                        border-radius: 2px;
-                        &.active, a:hover {
-                            background-color: lighten($primary-color, 20%);
-                        }
-                        a {
-                            color: $white;
-                            font-weight: bold;
-                            text-decoration: none;
-                            padding: 5px 10px;
-                            display: block;
-                            border-radius: 2px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    #secondary-header {
-        background-color: $iron;
-        nav {
-            &#secondary-menu {
+	.container {
+		@include container(95%);
+	}
+	#logo {
+		float: left;
+		margin: 0;
+	}
+}
 
-            }
-        }
-    }
+nav {
+	ul {
+		margin: 0;
+		li {
+			list-style: none;
+			float: left;
+			a {
+				color: $black;
+				text-decoration: none;
+			}
+		}
+	}
+	&#primary-menu {
+		float: right;
+		padding: 30px 0;
+		ul {
+			li {
+				margin-left: 40px;
+				a {
+					font-weight: 300;
+					&:hover {
+						color: $oslo-grey;
+					}
+					&.button {
+						padding: 5px 15px;
+						border: solid 1px $primary-color;
+						color: $primary-color;
+						border-radius: 20px;
+						&:hover {
+							background-color: $primary-color;
+							color: $white;
+						}
+					}
+				}
+				&.active a:not(.button) {
+					color: $primary-color;
+					font-weight: 600;
+				}
+			}
+		}
+	}
 }
