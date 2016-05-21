@@ -18,6 +18,10 @@
 					</h1>
 					<nav id="primary-menu">
 						{% block primary_menu %}
+							<a id="toggle-primary-menu" class="toggle button" href="#">
+								<i class="fa fa-bars fa-lg"></i>
+								<span>Menü</span>
+							</a>
 							<ul>
 								{% set primary_menu = [
 									{'title': 'Home', 'url': base_url, 'classes': ''},
