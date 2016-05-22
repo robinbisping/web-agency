@@ -20,22 +20,27 @@
 						{% block primary_menu %}
 							<a id="toggle-primary-menu" class="toggle button" href="#">
 								<i class="fa fa-bars fa-lg"></i>
-								<span>Menü</span>
+								Menü
 							</a>
 							<ul>
 								{% set primary_menu = [
-									{'title': 'Home', 'url': base_url, 'classes': ''},
-									{'title': 'Webdesign', 'url': base_url ~ 'webdesign', 'classes': ''},
-									{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen', 'classes': ''},
-									{'title': 'Fotografie', 'url': base_url ~ 'fotografie', 'classes': ''},
+									{'title': 'Home', 'url': base_url},
+									{'title': 'Webdesign', 'url': base_url ~ 'webdesign'},
+									{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen'},
+									{'title': 'Fotografie', 'url': base_url ~ 'fotografie'},
 									{'title': 'IT-Lösungen', 'url': base_url ~ 'it'},
-									{'title': 'Kostenlose Offerte', 'url': base_url ~ 'offerte', 'classes': 'button'}
 								] %}
 								{% for menu in primary_menu %}
 									<li{% if menu.url == current_url %} class="active"{% endif %}>
-										<a{% if menu.classes %} class="{{ menu.classes }}"{% endif %} href="{{ menu.url }}">{{ menu.title }}</a>
+										<a href="{{ menu.url }}">{{ menu.title }}</a>
 									</li>
 								{% endfor %}
+								<li{% if base_url ~ 'offerte' == current_url %} class="active"{% endif %}>
+									<a href="{{ base_url ~ 'offerte' }}" class="button primary">
+										<i class="fa fa-pencil fa-lg"></i>
+										Offerte anfordern
+									</a>
+								</li>
 							</ul>
 						{% endblock %}
 					</nav>
