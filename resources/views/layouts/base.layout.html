@@ -1,3 +1,10 @@
+{% set primary_menu = [
+	{'title': 'Übersicht', 'url': base_url},
+	{'title': 'Webdesign', 'url': base_url ~ 'webdesign'},
+	{'title': 'Fotografie', 'url': base_url ~ 'fotografie'},
+	{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen'},
+	{'title': 'IT-Lösungen', 'url': base_url ~ 'it'},
+] %}
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
@@ -23,13 +30,6 @@
 								Menü
 							</a>
 							<ul>
-								{% set primary_menu = [
-									{'title': 'Home', 'url': base_url},
-									{'title': 'Webdesign', 'url': base_url ~ 'webdesign'},
-									{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen'},
-									{'title': 'Fotografie', 'url': base_url ~ 'fotografie'},
-									{'title': 'IT-Lösungen', 'url': base_url ~ 'it'},
-								] %}
 								{% for menu in primary_menu %}
 									<li{% if menu.url == current_url %} class="active"{% endif %}>
 										<a href="{{ menu.url }}">{{ menu.title }}</a>
@@ -52,32 +52,50 @@
 		</section>
 		<footer id="footer">
 			{% block footer %}
-				<div class="left">
-					<h4>Kontaktieren Sie uns</h4>
-					<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
-					<address>
-						<p>
-							web-agency<br>
-							Musterstrasse 123<br>
-							CH-1234 Musterdorf
-						</p>
-						<p>
-							<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
-							<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
-						</p>
-					</address>
+				<div id="primary-footer">
+					<div class="left">
+						<h4>Kontaktieren Sie uns</h4>
+						<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
+						<address>
+							<p>
+								web-agency<br>
+								Musterstrasse 123<br>
+								CH-1234 Musterdorf
+							</p>
+							<p>
+								<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
+								<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
+							</p>
+						</address>
+					</div>
+					<div class="right">
+						<h4>#gethyped #nofilter</h4>
+						<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
+						<ul id="social-media-menu">
+							<li>
+								<a href="#">
+									<i class="fa fa-facebook"></i>
+									<span class="sr-only">Facebook</span>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="right">
-					<h4>#gethyped #nofilter</h4>
-					<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
-					<ul id="social-media-menu">
-						<li>
-							<a href="#">
-								<i class="fa fa-facebook"></i>
-								<span class="sr-only">Facebook</span>
-							</a>
-						</li>
-					</ul>
+				<div id="secondary-footer">
+					<div class="container">
+						<nav id="footer-menu">
+							<ul>
+								{% for menu in primary_menu %}
+									<li{% if menu.url == current_url %} class="active"{% endif %}>
+										<a href="{{ menu.url }}">{{ menu.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</nav>
+						<div id="copyright">
+							Copyright &copy; {{ 'now'|date('Y') }} web-agency. Alle Rechte vorbehalten.
+						</div>
+					</div>
 				</div>
 			{% endblock %}
 		</footer>

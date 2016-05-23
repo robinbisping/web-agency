@@ -35,6 +35,10 @@ $primary-color: $hot-cinnamon;
 $secondary-color: $picton-blue;
 
 // General styles
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .button {
 	padding: 7px 14px;
 	border: solid 2px $black;
@@ -68,11 +72,6 @@ $secondary-color: $picton-blue;
 	}
 }
 
-// Structure
-body {
-	font-family: 'Open Sans', sans-serif;
-}
-
 // Header
 header {
 	.container {
@@ -100,7 +99,7 @@ nav {
 		@include breakpoint($bp-primary-menu) {
 			position: static;
 			float: right;
-			padding: 30px 0;
+			padding: 40px 0;
 		}
 		.toggle {
 			float: right;
@@ -190,4 +189,49 @@ nav {
 			}
 		}
 	}
+}
+
+// Footer
+footer {
+    &, & a {
+        color: $white;
+        text-decoration: none;
+    }
+    #primary-footer {
+        background-color: $black;
+    }
+    #secondary-footer {
+        padding: 20px 0;
+        background-color: $ship-grey;
+        font-weight: 300;
+        @include breakpoint($bp-primary-menu) {
+            padding: 30px 0;
+        }
+        .container {
+            @include container(95%);
+        }
+        nav#footer-menu {
+            ul {
+                li {
+                    @include breakpoint($bp-primary-menu) {
+                        display: inline;
+                    }
+                    &:not(:last-child):after {
+                        @include breakpoint($bp-primary-menu) {
+                            content: '/';
+                            margin: 0 5px;
+                            font-weight: 600;
+                        }
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        #copyright {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    }
 }
