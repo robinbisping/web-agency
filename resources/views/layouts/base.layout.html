@@ -5,6 +5,7 @@
 	{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen'},
 	{'title': 'IT-Lösungen', 'url': base_url ~ 'it'},
 ] %}
+{% htmlcompress %}
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
@@ -53,32 +54,34 @@
 		<footer id="footer">
 			{% block footer %}
 				<div id="primary-footer">
-					<div class="left">
-						<h4>Kontaktieren Sie uns</h4>
-						<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
-						<address>
-							<p>
-								web-agency<br>
-								Musterstrasse 123<br>
-								CH-1234 Musterdorf
-							</p>
-							<p>
-								<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
-								<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
-							</p>
-						</address>
-					</div>
-					<div class="right">
-						<h4>#gethyped #nofilter</h4>
-						<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
-						<ul id="social-media-menu">
-							<li>
-								<a href="#">
-									<i class="fa fa-facebook"></i>
-									<span class="sr-only">Facebook</span>
-								</a>
-							</li>
-						</ul>
+					<div class="container">
+						<div id="contact">
+							<h4>Kontaktieren Sie uns</h4>
+							<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
+							<address>
+								<p>
+									web-agency<br>
+									Musterstrasse 123<br>
+									CH-1234 Musterdorf
+								</p>
+								<p>
+									<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
+									<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
+								</p>
+							</address>
+						</div>
+						<div id="social-media">
+							<h4>#gethyped #nofilter</h4>
+							<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
+							<ul id="social-media-menu">
+								<li>
+									<a href="#">
+										<i class="fa fa-facebook"></i>
+										<span class="sr-only">Facebook</span>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 				<div id="secondary-footer">
@@ -104,3 +107,4 @@
 		{% endblock %}
 	</body>
 </html>
+{% endhtmlcompress %}
