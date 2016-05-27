@@ -13,7 +13,7 @@ $twig = new Twig_Environment($loader, array(
 	'cache' => false // Enable in production: '../storage' instead of false
 ));
 
-// Add minifying html extension to twig (does only work when debugging is disabled)
+// Add minifying html extension to twig (does only work when twig debugging is disabled)
 $twig->addExtension(new \nochso\HtmlCompressTwig\Extension());
 
 // Data

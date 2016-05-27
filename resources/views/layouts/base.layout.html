@@ -20,14 +20,14 @@
 	<body>
 		<header id="header">
 			{% block header %}
-				<div class="container">
+				<div class="container-full-width">
 					<h1 id="logo">
 						<a href="{{ base_url }}">web-agency</a>
 					</h1>
 					<nav id="primary-menu">
 						{% block primary_menu %}
 							<a id="toggle-primary-menu" class="toggle button" href="#">
-								<i class="fa fa-bars fa-lg"></i>
+								<i class="fa fa-bars"></i>
 								Menü
 							</a>
 							<ul>
@@ -38,7 +38,7 @@
 								{% endfor %}
 								<li{% if base_url ~ 'offerte' == current_url %} class="active"{% endif %}>
 									<a href="{{ base_url ~ 'offerte' }}" class="button primary">
-										<i class="fa fa-pencil fa-lg"></i>
+										<i class="fa fa-pencil"></i>
 										Offerte anfordern
 									</a>
 								</li>
@@ -54,38 +54,54 @@
 		<footer id="footer">
 			{% block footer %}
 				<div id="primary-footer">
-					<div class="container">
-						<div id="contact">
-							<h4>Kontaktieren Sie uns</h4>
-							<p>Habe Sie eine Frage? Kontaktieren Sie uns. Wir helfen Ihnen gerne.</p>
+					<div class="container divider">
+						<div id="contact" class="column">
+							<h3>Kontakt</h3>
+							<p>Haben Sie eine Frage? Ist etwas unklar? Kontaktieren Sie uns. Wir helfen Ihnen gerne weiter.</p>
 							<address>
+								<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse" class="button primary">
+									<i class="fa fa-envelope"></i>
+									info@web-agency.ch
+								</a>
+								<a href="tel:123456789" title="Telefonnummer" class="button primary">
+									<i class="fa fa-phone"></i>
+									123 456 789
+								</a>
 								<p>
-									web-agency<br>
-									Musterstrasse 123<br>
+									web-agency,
+									Musterstrasse 123,
 									CH-1234 Musterdorf
-								</p>
-								<p>
-									<a href="tel:123456789" title="Telefonnummer">123 456 789</a><br>
-									<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse">info@web-agency.ch</a>
 								</p>
 							</address>
 						</div>
-						<div id="social-media">
-							<h4>#gethyped #nofilter</h4>
-							<p>Wir sind auch auf Sozialen Medien. Folgen Sie uns.</p>
-							<ul id="social-media-menu">
-								<li>
-									<a href="#">
-										<i class="fa fa-facebook"></i>
-										<span class="sr-only">Facebook</span>
-									</a>
-								</li>
-							</ul>
+						<div id="social-media" class="column">
+							<h3>Soziale Medien</h3>
+							<p>Erfahren Sie aus erster Hand, was bei uns läuft. Um immer auf dem neusten Stand zu bleiben, folgen Sie uns in den Sozialen Netzwerken. <em>#gethyped #nofilter</em></p>
+							<a href="#" class="button primary">
+								<i class="fa fa-facebook-square"></i>
+								Facebook
+							</a>
+							<a href="#" class="button primary">
+								<i class="fa fa-instagram"></i>
+								Instagram
+							</a>
+							<a href="#" class="button primary">
+								<i class="fa fa-flickr"></i>
+								Flickr
+							</a>
+							<a href="#" class="button primary">
+								<i class="fa fa-xing-square"></i>
+								Xing
+							</a>
+							<a href="#" class="button primary">
+								<i class="fa fa-linkedin-square"></i>
+								Linkedin
+							</a>
 						</div>
 					</div>
 				</div>
 				<div id="secondary-footer">
-					<div class="container">
+					<div class="container-full-width">
 						<nav id="footer-menu">
 							<ul>
 								{% for menu in primary_menu %}
