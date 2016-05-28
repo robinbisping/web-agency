@@ -222,8 +222,13 @@ footer {
         color: $white;
         text-decoration: none;
     }
-    @include breakpoint($bp-footer) {
-        .divider{
+	.divider{
+		@include breakpoint(max-width $bp-footer) {
+			#social-media {
+				border-top: solid 1px $white;
+			}
+		}
+		@include breakpoint($bp-footer) {
             .column {
                 position: relative;
             }
@@ -233,16 +238,16 @@ footer {
                 visibility: hidden;
             }
             .column:not(:first-child):after {
-                background: $ship-grey;
-                bottom: 0;
-                content: ' ';
-                position: absolute;
-                top: 0;
-                width: 1px;
-                left: 0;
-            }
-        }
-    }
+				background: $ship-grey;
+				bottom: 0;
+				content: ' ';
+				position: absolute;
+				top: 0;
+				width: 1px;
+				left: 0;
+			}
+		}
+	}
     #primary-footer {
         padding: 30px 0;
         background-color: $black;
@@ -273,6 +278,11 @@ footer {
             @include breakpoint($bp-footer) {
                 @include span(1 of 2);
                 margin: 0;
+            }
+            address p {
+            	text-transform: uppercase;
+            	font-size: 14px;
+            	font-weight: 700;
             }
         }
         #social-media {
