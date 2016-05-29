@@ -33,11 +33,11 @@
 							<ul>
 								{% for menu in primary_menu %}
 									<li{% if menu.url == current_url %} class="active"{% endif %}>
-										<a href="{{ menu.url }}">{{ menu.title }}</a>
+										<a href="{{ menu.url }}" title="{{ menu.title }}">{{ menu.title }}</a>
 									</li>
 								{% endfor %}
 								<li{% if base_url ~ 'offerte' == current_url %} class="active"{% endif %}>
-									<a href="{{ base_url ~ 'offerte' }}" class="button primary">
+									<a class="button primary" href="{{ base_url ~ 'offerte' }}" title="Offerte anfordern">
 										<i class="fa fa-pencil"></i>
 										Offerte anfordern
 									</a>
@@ -54,16 +54,16 @@
 		<footer id="footer">
 			{% block footer %}
 				<div id="primary-footer">
-					<div class="container divider">
-						<div id="contact" class="column">
+					<div class="container">
+						<div id="contact">
 							<h3>Kontakt</h3>
 							<p>Haben Sie eine Frage? Ist etwas unklar? Kontaktieren Sie uns. Wir helfen Ihnen gerne weiter.</p>
 							<address>
-								<a href="mailto:info@web-agency.ch" title="E-Mail-Adresse" class="button primary">
+								<a class="button primary" href="mailto:info@web-agency.ch" title="E-Mail-Adresse">
 									<i class="fa fa-envelope"></i>
 									info@web-agency.ch
 								</a>
-								<a href="tel:123456789" title="Telefonnummer" class="button primary">
+								<a class="button primary" href="tel:123456789" title="Telefonnummer">
 									<i class="fa fa-phone"></i>
 									123 456 789
 								</a>
@@ -74,26 +74,26 @@
 								</p>
 							</address>
 						</div>
-						<div id="social-media" class="column">
+						<div id="social-media">
 							<h3>Soziale Medien</h3>
 							<p>Erfahren Sie aus erster Hand, was bei uns läuft. Um immer auf dem neusten Stand zu bleiben, folgen Sie uns in den Sozialen Netzwerken. <em>#gethyped #nofilter</em></p>
-							<a href="#" class="button primary">
+							<a class="button primary" href="#" title="web-agency auf Facebook">
 								<i class="fa fa-facebook-square"></i>
 								Facebook
 							</a>
-							<a href="#" class="button primary">
+							<a class="button primary" href="#" title="web-agency auf Instagram">
 								<i class="fa fa-instagram"></i>
 								Instagram
 							</a>
-							<a href="#" class="button primary">
+							<a class="button primary" href="#" title="web-agency auf Flickr">
 								<i class="fa fa-flickr"></i>
 								Flickr
 							</a>
-							<a href="#" class="button primary">
+							<a class="button primary" href="#" title="web-agency auf Xing">
 								<i class="fa fa-xing-square"></i>
 								Xing
 							</a>
-							<a href="#" class="button primary">
+							<a class="button primary" href="#" title="web-agency auf Linkedin">
 								<i class="fa fa-linkedin-square"></i>
 								Linkedin
 							</a>
@@ -106,7 +106,7 @@
 							<ul>
 								{% for menu in primary_menu %}
 									<li{% if menu.url == current_url %} class="active"{% endif %}>
-										<a href="{{ menu.url }}">{{ menu.title }}</a>
+										<a href="{{ menu.url }}" title="{{ menu.title }}">{{ menu.title }}</a>
 									</li>
 								{% endfor %}
 							</ul>
