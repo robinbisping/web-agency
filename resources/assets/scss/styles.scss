@@ -20,13 +20,13 @@ $bp-footer-lg: 1200px;
 $bp-footer: 800px;
 
 // White to black
-$white: #FBFBFB;            // 1%
-$iron: #E6E7E8;             // 10%
-$silver-sand: #C7C8CA;      // 25%
-$oslo-grey: #939598;        // 50%
-$shuttle-grey: #636466;     // 75%
-$ship-grey: #414042;        // 90%
-$black: #262324;            // 99%
+$white: #FBFBFB;			// 1%
+$iron: #E6E7E8;			 // 10%
+$silver-sand: #C7C8CA;	  // 25%
+$oslo-grey: #939598;		// 50%
+$shuttle-grey: #636466;	 // 75%
+$ship-grey: #414042;		// 90%
+$black: #262324;			// 99%
 
 // Colours
 $flush-mahogany: #CA3435;
@@ -38,16 +38,16 @@ $secondary-color: $picton-blue;
 
 // General styles
 body {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 p {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 address {
-    font-style: normal;
+	font-style: normal;
 }
 .button {
-    display: inline-block;
+	display: inline-block;
 	padding: 7px 14px;
 	border: solid 2px $black;
 	border-radius: 3px;
@@ -56,9 +56,9 @@ address {
 	font-size: 14px;
 	font-weight: 700;
 	i {
-        vertical-align: -5%;
+		vertical-align: -5%;
 		margin-right: 10px;
-        font-size: 18px;
+		font-size: 18px;
 	}
 	&:hover {
 		background-color: $black;
@@ -80,22 +80,22 @@ address {
 			color: $white;
 		}
 	}
-    &.inverted {
-        border-color: $white;
-        color: $white;
-        &:hover {
-            background-color: $white;
-            color: $black;
-        }
-    }
+	&.inverted {
+		border-color: $white;
+		color: $white;
+		&:hover {
+			background-color: $white;
+			color: $black;
+		}
+	}
 }
 
 // Structure
 .container {
-    @include container(1200px);
+	@include container(1200px);
 }
 .container-full-width {
-    @include container(95%);
+	@include container(95%);
 }
 
 // Header
@@ -185,8 +185,8 @@ nav {
 						}
 					}
 					&.button {
-                        display: inline;
-                        margin: 0;
+						display: inline;
+						margin: 0;
 						@include breakpoint(max-width $bp-primary-menu) {
 							display: block;
 							padding: 15px 40px;
@@ -218,107 +218,96 @@ nav {
 
 // Footer
 footer {
-    &, & a {
-        color: $white;
-        text-decoration: none;
-    }
-	.divider{
-		@include breakpoint(max-width $bp-footer) {
-			#social-media {
-				border-top: solid 1px $white;
+	&, & a {
+		color: $white;
+		text-decoration: none;
+	}
+	#primary-footer {
+		padding: 30px 0;
+		background-color: $black;
+		@include breakpoint($bp-footer) {
+			padding: 50px 0;
+			text-align: center;
+		}
+		.container {
+			@include breakpoint(max-width $bp-footer-lg) {
+				@include container(95%);
+			}
+			@include breakpoint($bp-footer-lg) {
+				@include container(80%);
 			}
 		}
-		@include breakpoint($bp-footer) {
-            .column {
-                position: relative;
-            }
-            &:after {
-                display: block;
-                height: 0;
-                visibility: hidden;
-            }
-            .column:not(:first-child):after {
-				background: $ship-grey;
-				bottom: 0;
-				content: ' ';
-				position: absolute;
-				top: 0;
-				width: 1px;
-				left: 0;
+		h3 {
+			margin: 0;
+		}
+		.button {
+			margin: 5px 10px 5px 0;
+			@include breakpoint($bp-footer) {
+				margin: 5px;
+			}
+		}
+		#contact {
+			@include span(12);
+			margin-bottom: 25px;
+			padding-bottom: 25px;
+			border-bottom: solid 1px $ship-grey;
+			@include breakpoint($bp-footer) {
+				@include span(1 of 2);
+				position: relative;
+				margin: 0;
+				border: none;
+			}
+			address p {
+				margin: 10px 0 0 0;
+				text-transform: uppercase;
+				font-size: 14px;
+				font-weight: 700;
+			}
+		}
+		#social-media {
+			@include span(12);
+			@include breakpoint($bp-footer) {
+				@include span(1 at 1 of 2);
+				position: relative;
+				&:after {
+					content: ' ';
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					width: 1px;
+					background: $ship-grey;
+				}
 			}
 		}
 	}
-    #primary-footer {
-        padding: 30px 0;
-        background-color: $black;
-        @include breakpoint($bp-footer) {
-            padding: 50px 0;
-            text-align: center;
-        }
-        .container {
-            @include breakpoint(max-width $bp-footer-lg) {
-                @include container(95%);
-            }
-            @include breakpoint($bp-footer-lg) {
-                @include container(80%);
-            }
-        }
-        h3 {
-            margin: 0;
-        }
-        .button {
-            margin: 5px 10px 5px 0;
-            @include breakpoint($bp-footer) {
-                margin: 5px;
-            }
-        }
-        #contact {
-            @include span(12);
-            margin-bottom: 30px;
-            @include breakpoint($bp-footer) {
-                @include span(1 of 2);
-                margin: 0;
-            }
-            address p {
-            	text-transform: uppercase;
-            	font-size: 14px;
-            	font-weight: 700;
-            }
-        }
-        #social-media {
-            @include span(12);
-            @include breakpoint($bp-footer) {
-                @include span(1 at 1 of 2);
-            }
-        }
-    }
-    #secondary-footer {
-        padding: 20px 0;
-        background-color: $ship-grey;
-        font-weight: 300;
-        @include breakpoint($bp-primary-menu) {
-            padding: 30px 0;
-        }
-        nav#footer-menu {
-            @include span(12);
-            ul {
-                li {
-                    display: inline;
-                    &:not(:last-child):after {
-                        content: '/';
-                        margin: 0 5px;
-                        font-weight: 600;
-                    }
-                    a:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
-        #copyright {
-            @include span(12);
-            margin-top: 10px;
-            font-size: 12px;
-        }
-    }
+	#secondary-footer {
+		padding: 20px 0;
+		background-color: $ship-grey;
+		font-weight: 300;
+		@include breakpoint($bp-primary-menu) {
+			padding: 30px 0;
+		}
+		nav#footer-menu {
+			@include span(12);
+			ul {
+				li {
+					display: inline;
+					&:not(:last-child):after {
+						content: '/';
+						margin: 0 5px;
+						font-weight: 600;
+					}
+					a:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+		#copyright {
+			@include span(12);
+			margin-top: 10px;
+			font-size: 12px;
+		}
+	}
 }
