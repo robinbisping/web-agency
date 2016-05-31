@@ -3,9 +3,49 @@
 {% block title %}Übersicht{% endblock %}
 
 {% block content %}
-	<section style="height: 1000px; background-image:url('http://images5.fanpop.com/image/photos/26600000/A-Beautiful-World-sesshyswind-26642732-1152-768.jpg'); background-repeat: no-repeat; background-size: cover;"></section>
-    <h1>Index</h1>
-    <p class="important">
-        Welcome to my awesome homepage.
-    </p>
+	<section id="home-webdesign" class="intro image">
+		<div class="container">
+			<div class="intro content">
+				Ihre eigene Webseite.<br>
+				Rundum betreut.
+				<i>Aus dem Zürcher Oberland.</i>
+				<div class="intro links">
+					<a href="{{ base_url ~ 'webdesign' }}" class="button primary filled">Webdesign</a>
+					<a href="{{ base_url ~ 'offerte' }}" class="button inverted">Offerte anfordern</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="home-services" class="container">
+		<div id="home-services-intro">
+			<h3>Andere Dienstleistungen</h3>
+			<p>Eine <a href="{{ base_url ~ 'webdesign' }}">eigene Webseite</a> ist ein guter Start. Wie wär's aber auch mit professionellen Fotos, eigenen Visitenkarten oder gar einer massgeschneiderten IT-Lösung?</p>
+		</div>
+		<div class="service">
+			<img src="">
+			<p>Ob Privatperson oder Unternehmen, Porträt-Fotografie oder Reportage: Wir setzen Sie in Szene.</p>
+			<a href="{{ base_url ~ 'fotografie' }}" class="button">Fotografie</a>
+		</div>
+		<div class="service">
+			<img src="./img/home-services-drucksachen.gif">
+			<h4>Visitenkarten, Bröschuren, Plakate</h4>
+			<p>Lorem ipsum Ob Privatperson oder Unternehmen, Porträt-Fotografie oder Reportage: Wir setzen Sie in Szene. Ob Privatperson oder Unternehmen, Porträt-Fotografie oder Reportage: Wir setzen Sie in Szene.</p>
+			<a href="{{ base_url ~ 'drucksachen' }}" class="button">Drucksachen</a>
+		</div>
+		<div class="service">
+			<img src="./img/home-services-it.gif">
+			<h4>Individuelle Software-Lösungen</h4>
+			<p>Lorem ipsum Ob Privatperson oder Unternehmen, Porträt-Fotografie oder Reportage: Wir setzen Sie in Szene. Ob Privatperson oder Unternehmen, Porträt-Fotografie oder Reportage: Wir setzen Sie in Szene.</p>
+			<a href="{{ base_url ~ 'it' }}" class="button">IT-Lösungen</a>
+		</div>
+	</section>
+	<section id="home-customers">
+	</section>
+	<section id="home-about-us">
+		<h3>Das sind wir</h3>
+		<p>Bla bla</p>
+		<div>
+			
+		</div>
+	</section>
 {% endblock %}

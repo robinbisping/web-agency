@@ -18,13 +18,15 @@ $susy: (
 $bp-primary-menu: 1100px;
 $bp-footer-lg: 1200px;
 $bp-footer: 800px;
+$bp-intro: 700px;
+$bp-intro-lg: 1250px;
 
 // White to black
 $white: #FBFBFB;			// 1%
-$iron: #E6E7E8;			 // 10%
-$silver-sand: #C7C8CA;	  // 25%
+$iron: #E6E7E8;				// 10%
+$silver-sand: #C7C8CA;		// 25%
 $oslo-grey: #939598;		// 50%
-$shuttle-grey: #636466;	 // 75%
+$shuttle-grey: #636466;		// 75%
 $ship-grey: #414042;		// 90%
 $black: #262324;			// 99%
 
@@ -34,10 +36,14 @@ $picton-blue: #3990E6;
 
 // Relative colours
 $primary-color: $flush-mahogany;
-$secondary-color: $picton-blue;
+$secondary-color: $ship-grey;
+
+// Images
+$img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
 
 // General styles
 body {
+	background-color: $white;
 	font-family: 'Open Sans', sans-serif;
 }
 p {
@@ -47,12 +53,29 @@ address {
 	font-style: normal;
 }
 .button {
+	@mixin button($background-color, $foreground-color) {
+		border-color: $background-color;
+		color: $background-color;
+		&:hover {
+			background-color: $background-color;
+			color: $foreground-color;
+		}
+		&.filled {
+			background-color: $background-color;
+			color: $foreground-color;
+			&:hover {
+				border-color: lighten($background-color, 10%);
+				background-color: lighten($background-color, 10%);
+			}
+		}
+	}
 	display: inline-block;
+	margin: 5px 10px 5px 0;
 	padding: 7px 14px;
-	border: solid 2px $black;
+	border: solid 2px;
 	border-radius: 3px;
 	text-transform: uppercase;
-	color: $black;
+	text-decoration: none;
 	font-size: 14px;
 	font-weight: 700;
 	i {
@@ -60,35 +83,21 @@ address {
 		margin-right: 10px;
 		font-size: 18px;
 	}
-	&:hover {
-		background-color: $black;
-		color: $white;
-	}
+	@include button($black, $white);
 	&.primary {
-		border-color: $primary-color;
-		color: $primary-color;
-		&:hover {
-			background-color: $primary-color;
-			color: $white;
-		}		
+		@include button($primary-color, $white);
 	}
 	&.secondary {
-		border-color: $secondary-color;
-		color: $secondary-color;
-		&:hover {
-			background-color: $secondary-color;
-			color: $white;
-		}
+		@include button($secondary-color, $white);
 	}
 	&.inverted {
-		border-color: $white;
-		color: $white;
-		&:hover {
-			background-color: $white;
-			color: $black;
-		}
+		@include button($white, $black);
 	}
 }
+
+// ------------------------------------------------
+// -------------------- LAYOUT --------------------
+// ------------------------------------------------
 
 // Structure
 .container {
@@ -100,6 +109,7 @@ address {
 
 // Header
 header {
+	border-bottom: solid 1px $iron;
 	a {
 		text-decoration: none;
 	}
@@ -107,7 +117,6 @@ header {
 		float: left;
 		margin: 0;
 	}
-	background-color: $white;
 }
 
 // Primary Menu
@@ -241,7 +250,6 @@ footer {
 			margin: 0;
 		}
 		.button {
-			margin: 5px 10px 5px 0;
 			@include breakpoint($bp-footer) {
 				margin: 5px;
 			}
@@ -309,5 +317,66 @@ footer {
 			margin-top: 10px;
 			font-size: 12px;
 		}
+	}
+}
+
+// ------------------------------------------------
+// -------------------- CONTENT -------------------
+// ------------------------------------------------
+
+// Intro image
+.intro.image {
+	min-height: 300px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	.container {
+		@include container(95%);
+		@include breakpoint($bp-intro) {
+			@include container(80%);
+		}
+		.intro.content {
+			@include span(12);
+			color: $white;
+			font-size: 30px;
+			font-weight: 700;
+			@include breakpoint($bp-intro) {
+				font-size: 40px;
+			}
+			@include breakpoint($bp-intro-lg) {
+				font-size: 45px;
+			}
+			.intro.links {
+				margin-top: 20px;
+				@include breakpoint($bp-intro) {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+// Home
+#home-webdesign {
+	background-image: url($img-home-webdesign);
+	i {
+		display: block;
+		font-weight: 400;
+	}
+	@include breakpoint($bp-intro-lg) {
+		br {
+			display: none;
+		}
+	}
+}
+
+#home-services {
+	#home-services-intro {
+		width: span(8);
+		margin: 50px auto;
+		text-align: center;
+	}
+	.service {
+		@include span(4 of 12 2);
 	}
 }
