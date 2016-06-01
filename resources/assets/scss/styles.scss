@@ -378,5 +378,11 @@ footer {
 	}
 	.service {
 		@include span(4 of 12 2);
+		h4 {
+			margin: 30px  0 5px 0;
+		}
+		p {
+			margin-top: 0;
+		}
 	}
 }
