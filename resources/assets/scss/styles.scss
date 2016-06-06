@@ -52,11 +52,21 @@ p {
 address {
 	font-style: normal;
 }
+a {
+	border-bottom: solid 1px $silver-sand;
+	text-decoration: none;
+	color: $primary-color;
+	transition: all 50ms linear;
+	&:hover {
+		border-bottom-color: $primary-color;
+	}
+}
 .button {
 	@mixin button($background-color, $foreground-color) {
 		border-color: $background-color;
 		color: $background-color;
 		&:hover {
+			border-color: $background-color;
 			background-color: $background-color;
 			color: $foreground-color;
 		}
@@ -185,6 +195,7 @@ nav {
 					&:not(.button) {
 						display: block;
 						padding: 15px 40px;
+						border: none;
 						text-align: center;
 						color: $white;
 						font-weight: 300;
@@ -314,8 +325,11 @@ footer {
 						margin: 0 5px;
 						font-weight: 600;
 					}
-					a:hover {
-						text-decoration: underline;
+					a {
+						border: none;
+						&:hover {
+							text-decoration: underline;
+						}
 					}
 				}
 			}
@@ -358,14 +372,19 @@ footer {
 }
 
 #home-services {
+	padding: 70px 0;
 	#home-services-intro {
-		width: span(8);
-		margin: 50px auto;
-		text-align: center;
+		width: span(6);
+		margin: 0 auto 100px auto;
+		p {
+			line-height: 2;
+			text-align: center;
+			font-weight: 700;
+		}
 	}
 	.service {
 		@include span(4 of 12 2);
-		h4 {
+		h3 {
 			margin: 30px  0 5px 0;
 		}
 		p {
