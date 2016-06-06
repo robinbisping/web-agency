@@ -23,7 +23,7 @@ $data['current_url'] = $data['base_url'] . trim($_SERVER['REQUEST_URI'], '/');
 
 // Add all routes
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-	$r->addRoute('GET', '/', 'index');
+	$r->addRoute('GET', '/', 'home');
 	$r->addRoute('GET', '/webdesign', 'webdesign');
 	$r->addRoute('GET', '/fotografie', 'fotografie');
 	$r->addRoute('GET', '/drucksachen', 'drucksachen');

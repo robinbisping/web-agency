@@ -32,11 +32,11 @@ $black: #262324;			// 99%
 
 // Colours
 $flush-mahogany: #CA3435;
-$picton-blue: #3990E6;
+$cascade: #8BA9A5;
 
 // Relative colours
 $primary-color: $flush-mahogany;
-$secondary-color: $ship-grey;
+$secondary-color: $cascade;
 
 // Images
 $img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
@@ -101,7 +101,7 @@ address {
 
 // Structure
 .container {
-	@include container(1200px);
+	@include container(1440px);
 }
 .container-full-width {
 	@include container(95%);
@@ -109,7 +109,12 @@ address {
 
 // Header
 header {
-	border-bottom: solid 1px $iron;
+	width: 100%;
+	&.transparent {
+		position: absolute;
+		z-index: 1;
+		background-color: rgba($white, 0.2);
+	}
 	a {
 		text-decoration: none;
 	}
@@ -166,6 +171,9 @@ nav {
 				}
 				&:not(:last-child) {
 					border-bottom: solid 1px rgba($white, 0.2);
+					@include breakpoint($bp-primary-menu) {
+						border: none;
+					}
 				}
 				&.active a, &.active a:hover {
 					font-weight: 600 !important;
@@ -324,48 +332,27 @@ footer {
 // -------------------- CONTENT -------------------
 // ------------------------------------------------
 
-// Intro image
-.intro.image {
-	min-height: 300px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	.container {
-		@include container(95%);
-		@include breakpoint($bp-intro) {
-			@include container(80%);
-		}
-		.intro.content {
-			@include span(12);
-			color: $white;
-			font-size: 30px;
-			font-weight: 700;
-			@include breakpoint($bp-intro) {
-				font-size: 40px;
-			}
-			@include breakpoint($bp-intro-lg) {
-				font-size: 45px;
-			}
-			.intro.links {
-				margin-top: 20px;
-				@include breakpoint($bp-intro) {
-					margin-top: 10px;
-				}
-			}
-		}
-	}
-}
-
 // Home
 #home-webdesign {
-	background-image: url($img-home-webdesign);
-	i {
-		display: block;
-		font-weight: 400;
-	}
-	@include breakpoint($bp-intro-lg) {
-		br {
-			display: none;
+	padding-top: 100px;
+	background-color: $secondary-color;
+	.intro {
+		&.content {
+			@include span(5);
+			margin: 150px 0;
+			h1 {
+				margin: 0 0 50px 0;
+				font-size: 48px;
+			}
+			h3 {
+				line-height: 2;
+			}
+		}
+		&.links {
+			margin-top: 50px;
+		}
+		&.image {
+			@include span(7);
 		}
 	}
 }

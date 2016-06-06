@@ -18,7 +18,7 @@
 		{% endblock %}
 	</head>
 	<body>
-		<header id="header">
+		<header id="header"{% block header_class %}{% endblock %}>
 			{% block header %}
 				<div class="container-full-width">
 					<h1 id="logo">
