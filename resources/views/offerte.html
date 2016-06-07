@@ -1,7 +1,29 @@
-{% extends "layouts/base.layout.html" %}
+{% extends "layouts/wizard.layout.html" %}
 
 {% block title %}Übersicht{% endblock %}
 
 {% block content %}
+<a href="{{ base ~ '/' }}">Zurück zur Homepage</a>
 
+<form action="" method="_POST">
+	<fieldset>
+		<label for="category">Kategorie</label>
+		<select id="category" name="category">
+			<option value="Webdesign">Webdesign</option>
+			<option value="Fotografie">Fotografie</option>
+			<option value="Drucksachen">Drucksachen</option>
+			<option value="IT-Lösungen">IT-Lösungen</option>
+		</select>
+		<label for="product">Produkt</label>
+		<select id="product" name="product">
+			<option value="">It depends</option>
+		</select>
+	</fieldset>
+	<fieldset></fieldset>
+	<fieldset></fieldset>
+</form>
+<code>
+	Category: {{ category }};
+	Product: {{ product }}
+</code>
 {% endblock %}

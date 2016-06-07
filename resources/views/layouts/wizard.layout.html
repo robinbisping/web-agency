@@ -1,0 +1,31 @@
+{% htmlcompress %}
+<!doctype html>
+<html lang="de">
+	<head>
+		{% block head %}
+			<meta charset="utf-8" />
+			<meta http-equiv="x-ua-compatible" content="ie=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<title>{% block title %}wizard.layout{% endblock %} – web-agency</title>
+			<base href="{{ base }}">
+			<link rel="stylesheet" href="./css/all.css" />
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			{% block header %}
+			{% endblock %}
+		</header>
+		<section id="content">
+			{% block content %}{% endblock %}
+		</section>
+		<footer id="footer">
+			{% block footer %}
+			{% endblock %}
+		</footer>
+		{% block scripts %}
+			<script src="./js/all.js"></script>
+		{% endblock %}
+	</body>
+</html>
+{% endhtmlcompress %}
