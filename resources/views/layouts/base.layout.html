@@ -1,9 +1,9 @@
 {% set primary_menu = [
-	{'title': 'Übersicht', 'url': base_url},
-	{'title': 'Webdesign', 'url': base_url ~ 'webdesign'},
-	{'title': 'Fotografie', 'url': base_url ~ 'fotografie'},
-	{'title': 'Drucksachen', 'url': base_url ~ 'drucksachen'},
-	{'title': 'IT-Lösungen', 'url': base_url ~ 'it'},
+	{'title': 'Übersicht', 'url': base ~ '/'},
+	{'title': 'Webdesign', 'url': base ~ '/webdesign'},
+	{'title': 'Fotografie', 'url': base ~ '/fotografie'},
+	{'title': 'Drucksachen', 'url': base ~ '/drucksachen'},
+	{'title': 'IT-Lösungen', 'url': base ~ '/it'},
 ] %}
 {% htmlcompress %}
 <!doctype html>
@@ -13,7 +13,8 @@
 			<meta charset="utf-8" />
 			<meta http-equiv="x-ua-compatible" content="ie=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<title>{% block title %}Home{% endblock %} – web-agency</title>
+			<title>{% block title %}base.layout{% endblock %} – web-agency</title>
+			<base href="{{ base }}">
 			<link rel="stylesheet" href="./css/all.css" />
 		{% endblock %}
 	</head>
@@ -22,7 +23,7 @@
 			{% block header %}
 				<div class="container-full-width">
 					<h1 id="logo">
-						<a href="{{ base_url }}">web-agency</a>
+						<a href="{{ base }}">web-agency</a>
 					</h1>
 					<nav id="primary-menu">
 						{% block primary_menu %}
@@ -32,12 +33,12 @@
 							</a>
 							<ul>
 								{% for menu in primary_menu %}
-									<li{% if menu.url == current_url %} class="active"{% endif %}>
+									<li{% if menu.url == url %} class="active"{% endif %}>
 										<a href="{{ menu.url }}" title="{{ menu.title }}">{{ menu.title }}</a>
 									</li>
 								{% endfor %}
-								<li{% if base_url ~ 'offerte' == current_url %} class="active"{% endif %}>
-									<a class="button primary" href="{{ base_url ~ 'offerte' }}" title="Offerte anfordern">
+								<li{% if base ~ 'offerte' == current_url %} class="active"{% endif %}>
+									<a class="button primary" href="{{ base ~ '/offerte' ~ uri }}" title="Offerte anfordern">
 										<i class="fa fa-pencil"></i>
 										Offerte anfordern
 									</a>
@@ -105,7 +106,7 @@
 						<nav id="footer-menu">
 							<ul>
 								{% for menu in primary_menu %}
-									<li{% if menu.url == current_url %} class="active"{% endif %}>
+									<li{% if menu.url == url %} class="active"{% endif %}>
 										<a href="{{ menu.url }}" title="{{ menu.title }}">{{ menu.title }}</a>
 									</li>
 								{% endfor %}

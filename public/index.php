@@ -16,28 +16,28 @@ $twig = new Twig_Environment($loader, array(
 // Add minifying html extension to twig (does only work when twig debugging is disabled)
 $twig->addExtension(new \nochso\HtmlCompressTwig\Extension());
 
+// Fetch method and URI
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+
 // Data
-$data = array();
-$data['base_url'] = 'http://localhost:3000/';
-$data['current_url'] = $data['base_url'] . trim($_SERVER['REQUEST_URI'], '/');
+$config['base'] = 'http://localhost:3000';
+$config['uri'] = $uri;
+$config['url'] = $config['base'] . $uri;
 
 // Add all routes
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 	$r->addRoute('GET', '/', 'home');
-	$r->addRoute('GET', '/webdesign', 'webdesign');
-	$r->addRoute('GET', '/fotografie', 'fotografie');
-	$r->addRoute('GET', '/drucksachen', 'drucksachen');
-	$r->addRoute('GET', '/it', 'it');
-	$r->addRoute('GET', '/offerte', 'offerte');
-	$r->addRoute('GET', '/team', 'team');
+	$r->addRoute('GET', '/webdesign[/]', 'webdesign');
+	$r->addRoute('GET', '/fotografie[/]', 'fotografie');
+	$r->addRoute('GET', '/drucksachen[/]', 'drucksachen');
+	$r->addRoute('GET', '/it[/]', 'it');
+	$r->addRoute('GET', '/offerte[/[{category}[/{product}]]]', 'offerte');
+	$r->addRoute('GET', '/team[/]', 'team');
 }, [
 	'cacheFile' => __DIR__ . '/../storage/route.cache', // Adds cache support
 	'cacheDisabled' => true // Disable in production
 ]);
-
-// Fetch method and URI
-$httpMethod = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
 
 // Strip query string and decode URI
 if (false !== $pos = strpos($uri, '?')) {
@@ -56,7 +56,8 @@ switch ($routeInfo[0]) {
 		break;
 	case FastRoute\Dispatcher::FOUND:
 		$file = $routeInfo[1] . '.html';
-		$vars = $routeInfo[2];
+		$query = $routeInfo[2];
+		$data = array_merge($config, $query);
 		$template = $twig->loadTemplate($file);
 		echo $template->render($data);
 		break;
