@@ -35,6 +35,11 @@ $bp-footer: 800px;
 $bp-intro: 700px;
 $bp-intro-lg: 1250px;
 
+@include breakpoint-set('no query fallbacks', true);
+$bp-small: 700px;
+$bp-medium: 1000px;
+$bp-large: 1400px;
+
 // White to black
 $white: #FBFBFB;			// 1%
 $iron: #E6E7E8;				// 10%
@@ -52,7 +57,7 @@ $cascade: #8BA9A5;
 $primary-color: $flush-mahogany;
 $secondary-color: $cascade;
 
-// Images
+// Images (only while developing, I think)
 $img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
 
 
@@ -101,17 +106,76 @@ $img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-ra
 // ----------------- BASIC STYLES -----------------
 // ------------------------------------------------
 
+// Body
 body {
 	background-color: $white;
 	font-family: 'Open Sans', sans-serif;
 	color: $black;
 }
+
+// Resets
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
+
+// Headlines
+h1 {
+	margin: 0 0 2rem 0;
+	font-size: 2rem;
+	@include susy-breakpoint($bp-medium, $susy) {
+		margin: 0 0 2rem 0;
+		font-size: 2.5rem;
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+		margin: 0 0 2.5rem 0;
+		font-size: 3rem;
+	}
+}
+h2 {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: normal;
+	@include susy-breakpoint($bp-medium, $susy) {
+		line-height: 1.5;
+		font-weight: bold;
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+		font-size: 1.25rem;
+		line-height: 2;
+	}
+}
+h3 {
+	margin: 1.5rem 0;
+	font-size: 1.5rem;
+	font-weight: normal;
+	@include susy-breakpoint($bp-medium, $susy) {
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+	}
+}
+h4 {
+	margin: 1.25rem 0;
+	font-size: 1.25rem;
+	font-weight: normal;
+	@include susy-breakpoint($bp-medium, $susy) {
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+	}
+}
+
+// Paragraphs
 p {
 	line-height: 1.5;
 }
 address {
 	font-style: normal;
 }
+
+// Links
 a {
 	border-bottom: solid 1px $silver-sand;
 	text-decoration: none;
@@ -147,13 +211,6 @@ a {
 		@include button($white, $black);
 	}
 }
-nav {
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-}
 
 
 // ------------------------------------------------
@@ -162,7 +219,7 @@ nav {
 
 // Grid
 .container {
-	@include container(1440px);
+	@include container(1400px);
 }
 .container-full-width {
 	@include container(95%);
@@ -398,44 +455,73 @@ footer {
 // ------------------------------------------------
 
 // Overall
-p.uppercase {
+@mixin featured_image_text($foreground-color, $background-color) {
+	color: $foreground-color;
+	text-shadow: 0 0 0.125em rgba($background-color, 0.5);
+	.button {
+		text-shadow: none;
+		box-shadow: 0 0 0.125em rgba($background-color, 0.5);
+	}
+}
+.featured-image {
+	min-height: 15rem;
+	background-size: cover;
+	background-position: center;	
+	background-repeat: no-repeat;
+	background-color: $secondary-color;
+	.column {
+		@include span(12 last);
+		margin: 3rem 0;
+	}
+	.links {
+		margin-top: 3rem;
+	}
+	&.black {
+		@include featured_image_text($black, $white);
+	}
+	&.white {
+		@include featured_image_text($white, $black);
+	}
+	@include susy-breakpoint($bp-small, $susy) {
+		.column {
+			@include span(9 first);
+		}
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		.column {
+			@include span(6 first);
+			margin: 5rem 0;
+		}
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+		.column {
+			@include span(5 first);
+			margin: 7.5rem 0;
+		}
+	}
+}
+p.description {
+	@include span(12 last);
 	line-height: 2;
 	text-transform: uppercase;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: 2px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	letter-spacing: 0.125rem;
+	@include susy-breakpoint($bp-small, $susy) {
+		width: span(8 last);
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		width: span(6 last);
+	}
 }
 
 // Home
 #home-webdesign {
 	padding-top: 100px;
 	background-image: url($img-home-webdesign);
-	background-size: cover;
-	background-position: center;
-	background-color: $secondary-color;
-	.description {
-		@include span(5);
-		margin: 150px 0;
-		color: $white;
-		text-shadow: 0 0 2px rgba($black, 0.5);
-		h1 {
-			margin: 0 0 50px 0;
-			font-size: 48px;
-		}
-		h3 {
-			line-height: 2;
-		}
-		.links {
-			margin-top: 50px;
-			.button {
-				text-shadow: none;
-				box-shadow: 0 0 2px rgba($black, 0.5);
-			}
-		}
-	}
-	.image {
-		@include span(7);
-	}
 }
 #home-services {
 	padding: 70px 0 100px 0;
