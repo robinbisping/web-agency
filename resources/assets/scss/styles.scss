@@ -16,7 +16,7 @@
 // Grid configuration
 $susy: (
 	columns: 12,
-	gutters: 1/2,
+	gutters: .5,
 	math: fluid,
 	output: float,
 	gutter-position: inside,
@@ -36,9 +36,9 @@ $bp-intro: 700px;
 $bp-intro-lg: 1250px;
 
 @include breakpoint-set('no query fallbacks', true);
-$bp-small: 700px;
-$bp-medium: 1000px;
-$bp-large: 1400px;
+$bp-small: 40rem;
+$bp-medium: 60rem;
+$bp-large: 90rem;
 
 // White to black
 $white: #FBFBFB;			// 1%
@@ -113,6 +113,14 @@ body {
 	color: $black;
 }
 
+// Layout
+.container {
+	@include container(90rem);
+}
+.container-full-width {
+	@include container(95%);
+}
+
 // Resets
 nav {
 	ul {
@@ -137,7 +145,7 @@ h1 {
 }
 h2 {
 	margin: 0;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	font-weight: normal;
 	@include susy-breakpoint($bp-medium, $susy) {
 		line-height: 1.5;
@@ -187,18 +195,18 @@ a {
 }
 .button {
 	display: inline-block;
-	margin: 5px 10px 5px 0;
-	padding: 7px 14px;
-	border: solid 2px;
-	border-radius: 3px;
+	margin: .33em .66em .33em 0;
+	padding: .5em 1em;
+	border: solid .15em;
+	border-radius: .25em;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-size: 14px;
-	font-weight: 700;
+	font-size: .875rem;
+	font-weight: bold;
 	i {
-		vertical-align: -5%;
-		margin-right: 10px;
-		font-size: 18px;
+		vertical-align: -.05em;
+		margin-right: .66em;
+		font-size: 1.25em;
 	}
 	@include button($black, $white);
 	&.primary {
@@ -210,20 +218,16 @@ a {
 	&.inverted {
 		@include button($white, $black);
 	}
+	@include susy-breakpoint($bp-small, $susy) {
+		border-width: .15em;
+		font-size: .875rem;
+	}
 }
 
 
 // ------------------------------------------------
 // -------------------- LAYOUT --------------------
 // ------------------------------------------------
-
-// Grid
-.container {
-	@include container(1400px);
-}
-.container-full-width {
-	@include container(95%);
-}
 
 // Header
 header#primary-header {
@@ -469,7 +473,6 @@ footer {
 	background-position: center;	
 	background-repeat: no-repeat;
 	background-color: $secondary-color;
-	text-align: center;
 	.column {
 		@include span(12 last);
 		margin: 3rem 0;
@@ -484,27 +487,39 @@ footer {
 		@include featured_image_text($white, $black);
 	}
 	@include susy-breakpoint($bp-small, $susy) {
+		text-align: center;
 		.column {
-			@include span(9 first);
+			width: span(9 first);
+			float: none;
+			display: inline-block;
+			margin: 3rem auto;
+		}
+		.links {
+			.button {
+				margin: .33em;
+			}
 		}
 	}
 	@include susy-breakpoint($bp-medium, $susy) {
-		text-align: left;
 		.column {
-			@include span(6 first);
-			margin: 5rem 0;
+			width: span(6 first);
+			margin: 5rem auto;
 		}
 		.links {
 			margin-top: 2.5rem;
 		}
 	}
 	@include susy-breakpoint($bp-large, $susy) {
+		text-align: left;
 		.column {
 			@include span(5 first);
 			margin: 7.5rem 0;
 		}
 		.links {
 			margin-top: 3rem;
+			.button {
+				margin: .33em .66em .33em 0;
+			}
 		}
 	}
 }
