@@ -10,7 +10,7 @@
 
 
 // ------------------------------------------------
-// ------------------ VARIABLES -------------------
+// -------------------- SETUP ---------------------
 // ------------------------------------------------
 
 // Grid configuration
@@ -29,12 +29,6 @@ $susy: (
   );
 
 // Breakpoints
-$bp-primary-menu: 1100px;
-$bp-footer-lg: 1200px;
-$bp-footer: 800px;
-$bp-intro: 700px;
-$bp-intro-lg: 1250px;
-
 @include breakpoint-set('no query fallbacks', true);
 $bp-small: 40rem;
 $bp-medium: 60rem;
@@ -57,63 +51,25 @@ $cascade: #8BA9A5;
 $primary-color: $flush-mahogany;
 $secondary-color: $cascade;
 
-// Images (only while developing, I think)
+// Temporary (only until replaced)
+$bp-primary-menu: 1100px;
+$bp-footer-lg: 1200px;
+$bp-footer: 800px;
+$bp-intro: 700px;
+$bp-intro-lg: 1250px;
 $img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
 
 
 // ------------------------------------------------
-// -------------------- MIXINS --------------------
+// ---------------- GENERAL STYLES ----------------
 // ------------------------------------------------
 
-@mixin button($background-color, $foreground-color) {
-	border-color: $background-color;
-	color: $background-color;
-	&:hover {
-		border-color: $background-color;
-		background-color: $background-color;
-		color: $foreground-color;
-	}
-	&.filled {
-		background-color: $background-color;
-		color: $foreground-color;
-		&:hover {
-			border-color: lighten($background-color, 10%);
-			background-color: lighten($background-color, 10%);
-		}
-	}
-}
-@mixin button_hollow($background-color, $foreground-color) {
-	border-color: $background-color;
-	color: $background-color;
-	&:hover {
-		border-color: $background-color;
-		background-color: $background-color;
-		color: $foreground-color;
-	}
-}
-@mixin button_filled($background-color, $foreground-color) {
-	border-color: $background-color;
-	background-color: $background-color;
-	color: $foreground-color;
-	&:hover {
-		border-color: lighten($background-color, 10%);
-		background-color: lighten($background-color, 10%);
-	}
-}
-
-
-// ------------------------------------------------
-// ----------------- BASIC STYLES -----------------
-// ------------------------------------------------
-
-// Body
+// Layout
 body {
 	background-color: $white;
 	font-family: 'Open Sans', sans-serif;
 	color: $black;
 }
-
-// Layout
 .container {
 	@include container(90rem);
 }
@@ -193,6 +149,41 @@ a {
 		border-bottom-color: $primary-color;
 	}
 }
+@mixin button($background-color, $foreground-color) {
+	border-color: $background-color;
+	color: $background-color;
+	&:hover {
+		border-color: $background-color;
+		background-color: $background-color;
+		color: $foreground-color;
+	}
+	&.filled {
+		background-color: $background-color;
+		color: $foreground-color;
+		&:hover {
+			border-color: lighten($background-color, 10%);
+			background-color: lighten($background-color, 10%);
+		}
+	}
+}
+@mixin button_hollow($background-color, $foreground-color) {
+	border-color: $background-color;
+	color: $background-color;
+	&:hover {
+		border-color: $background-color;
+		background-color: $background-color;
+		color: $foreground-color;
+	}
+}
+@mixin button_filled($background-color, $foreground-color) {
+	border-color: $background-color;
+	background-color: $background-color;
+	color: $foreground-color;
+	&:hover {
+		border-color: lighten($background-color, 10%);
+		background-color: lighten($background-color, 10%);
+	}
+}
 .button {
 	display: inline-block;
 	margin: .33em .66em .33em 0;
@@ -224,12 +215,94 @@ a {
 	}
 }
 
+// Featured image
+@mixin featured_image_text($foreground-color, $background-color) {
+	color: $foreground-color;
+	text-shadow: 0 0 0.125em rgba($background-color, 0.5);
+	.button {
+		text-shadow: none;
+		box-shadow: 0 0 0.125em rgba($background-color, 0.5);
+	}
+}
+.featured-image {
+	min-height: 15rem;
+	background-size: cover;
+	background-position: center;	
+	background-repeat: no-repeat;
+	background-color: $secondary-color;
+	.column {
+		@include span(12 last);
+		margin: 3rem 0;
+	}
+	.links {
+		margin-top: 2rem;
+	}
+	&.black {
+		@include featured_image_text($black, $white);
+	}
+	&.white {
+		@include featured_image_text($white, $black);
+	}
+	@include susy-breakpoint($bp-small, $susy) {
+		text-align: center;
+		.column {
+			width: span(9 first);
+			float: none;
+			display: inline-block;
+			margin: 3rem auto;
+		}
+		.links {
+			.button {
+				margin: .33em;
+			}
+		}
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		.column {
+			width: span(6 first);
+			margin: 5rem auto;
+		}
+		.links {
+			margin-top: 2.5rem;
+		}
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+		text-align: left;
+		.column {
+			@include span(5 first);
+			margin: 7.5rem 0;
+		}
+		.links {
+			margin-top: 3rem;
+			.button {
+				margin: .33em .66em .33em 0;
+			}
+		}
+	}
+}
+p.description {
+	@include span(12 last);
+	line-height: 2;
+	text-transform: uppercase;
+	font-size: 0.875rem;
+	font-weight: bold;
+	letter-spacing: 0.125rem;
+	@include susy-breakpoint($bp-small, $susy) {
+		width: span(8 last);
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		width: span(6 last);
+	}
+}
+
 
 // ------------------------------------------------
-// -------------------- LAYOUT --------------------
+// -------------------- HEADER --------------------
 // ------------------------------------------------
 
-// Header
 header#primary-header {
 	width: 100%;
 	a {
@@ -363,7 +436,64 @@ header#primary-header {
 }
 
 
-// Footer
+// ------------------------------------------------
+// ------------------ PAGE: HOME ------------------
+// ------------------------------------------------
+
+#home-webdesign {
+	padding-top: 100px;
+	background-image: url($img-home-webdesign);
+}
+#home-services {
+	padding: 70px 0 100px 0;
+	#home-services-intro {
+		width: span(6);
+		margin: 0 auto 100px auto;
+		text-align: center;
+	}
+	.service {
+		@include span(4 of 12);
+		h3 {
+			margin: 30px  0 5px 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		img {
+			height: 200px;
+			width: 250px;
+		}
+	}
+}
+#home-customers {
+	background-color: $secondary-color;
+	padding: 50px 0;
+	text-align: center;
+	p {
+		margin: 0 0 40px 0;
+	}
+	img {
+		height: 70px;
+		width: 180px;
+		&:not(:last-child) {
+			margin-right: 50px;
+		}
+	}
+}
+#home-about-us {
+	header {
+		text-align: center;
+		h3 {
+			margin: 0;
+		}
+	}
+}
+
+
+// ------------------------------------------------
+// -------------------- FOOTER --------------------
+// ------------------------------------------------
+
 footer {
 	&, & a {
 		color: $white;
@@ -449,144 +579,6 @@ footer {
 			@include span(12);
 			margin-top: 10px;
 			font-size: 12px;
-		}
-	}
-}
-
-
-// ------------------------------------------------
-// -------------------- CONTENT -------------------
-// ------------------------------------------------
-
-// Overall
-@mixin featured_image_text($foreground-color, $background-color) {
-	color: $foreground-color;
-	text-shadow: 0 0 0.125em rgba($background-color, 0.5);
-	.button {
-		text-shadow: none;
-		box-shadow: 0 0 0.125em rgba($background-color, 0.5);
-	}
-}
-.featured-image {
-	min-height: 15rem;
-	background-size: cover;
-	background-position: center;	
-	background-repeat: no-repeat;
-	background-color: $secondary-color;
-	.column {
-		@include span(12 last);
-		margin: 3rem 0;
-	}
-	.links {
-		margin-top: 2rem;
-	}
-	&.black {
-		@include featured_image_text($black, $white);
-	}
-	&.white {
-		@include featured_image_text($white, $black);
-	}
-	@include susy-breakpoint($bp-small, $susy) {
-		text-align: center;
-		.column {
-			width: span(9 first);
-			float: none;
-			display: inline-block;
-			margin: 3rem auto;
-		}
-		.links {
-			.button {
-				margin: .33em;
-			}
-		}
-	}
-	@include susy-breakpoint($bp-medium, $susy) {
-		.column {
-			width: span(6 first);
-			margin: 5rem auto;
-		}
-		.links {
-			margin-top: 2.5rem;
-		}
-	}
-	@include susy-breakpoint($bp-large, $susy) {
-		text-align: left;
-		.column {
-			@include span(5 first);
-			margin: 7.5rem 0;
-		}
-		.links {
-			margin-top: 3rem;
-			.button {
-				margin: .33em .66em .33em 0;
-			}
-		}
-	}
-}
-p.description {
-	@include span(12 last);
-	line-height: 2;
-	text-transform: uppercase;
-	font-size: 0.875rem;
-	font-weight: bold;
-	letter-spacing: 0.125rem;
-	@include susy-breakpoint($bp-small, $susy) {
-		width: span(8 last);
-		float: none;
-		margin: 0 auto;
-		text-align: center;
-	}
-	@include susy-breakpoint($bp-medium, $susy) {
-		width: span(6 last);
-	}
-}
-
-// Home
-#home-webdesign {
-	padding-top: 100px;
-	background-image: url($img-home-webdesign);
-}
-#home-services {
-	padding: 70px 0 100px 0;
-	#home-services-intro {
-		width: span(6);
-		margin: 0 auto 100px auto;
-		text-align: center;
-	}
-	.service {
-		@include span(4 of 12);
-		h3 {
-			margin: 30px  0 5px 0;
-		}
-		p {
-			margin-top: 0;
-		}
-		img {
-			height: 200px;
-			width: 250px;
-		}
-	}
-}
-#home-customers {
-	background-color: $secondary-color;
-	padding: 50px 0;
-	text-align: center;
-	p {
-		margin: 0 0 40px 0;
-	}
-	img {
-		height: 70px;
-		width: 180px;
-		&:not(:last-child) {
-			margin-right: 50px;
-		}
-	}
-}
-#home-about-us {
-	header {
-		text-align: center;
-		h3 {
-			margin: 0;
 		}
 	}
 }
