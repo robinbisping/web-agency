@@ -50,73 +50,71 @@
 			{% endblock %}
 		</header>
 		{% block content %}{% endblock %}
-		<footer id="footer">
-			{% block footer %}
-				<div id="primary-footer">
-					<div class="container">
-						<div id="contact">
-							<h3>Kontakt</h3>
-							<p>Haben Sie eine Frage? Ist etwas unklar? Kontaktieren Sie uns. Wir helfen Ihnen gerne weiter.</p>
-							<address>
-								<a class="button primary" href="mailto:info@web-agency.ch" title="E-Mail-Adresse">
-									<i class="fa fa-envelope"></i>
-									info@web-agency.ch
-								</a>
-								<a class="button primary" href="tel:123456789" title="Telefonnummer">
-									<i class="fa fa-phone"></i>
-									123 456 789
-								</a>
-								<p>
-									web-agency<br>
-									Musterstrasse 123<br>
-									1234 Musterdorf
-								</p>
-							</address>
-						</div>
-						<div id="social-media">
-							<h3>Soziale Medien</h3>
-							<p>Erfahren Sie aus erster Hand, was bei uns läuft. Folgen Sie uns in den Sozialen Netzwerken, um immer auf dem neusten Stand zu bleiben. <em>#gethyped #nofilter</em></p>
-							<a class="button primary" href="#" title="web-agency auf Facebook">
-								<i class="fa fa-facebook-square"></i>
-								Facebook
+		{% block footer %}
+			<footer id="footer-primary">
+				<div class="container">
+					<div id="footer-contact" class="column">
+						<h3>Kontakt</h3>
+						<p>Haben Sie eine Frage? Ist etwas unklar? Kontaktieren Sie uns. Wir helfen Ihnen gerne weiter.</p>
+						<address>
+							<a class="button primary" href="mailto:info@web-agency.ch" title="E-Mail-Adresse">
+								<i class="fa fa-envelope"></i>
+								info@web-agency.ch
 							</a>
-							<a class="button primary" href="#" title="web-agency auf Instagram">
-								<i class="fa fa-instagram"></i>
-								Instagram
+							<a class="button primary" href="tel:123456789" title="Telefonnummer">
+								<i class="fa fa-phone"></i>
+								123 456 789
 							</a>
-							<a class="button primary" href="#" title="web-agency auf Flickr">
-								<i class="fa fa-flickr"></i>
-								Flickr
-							</a>
-							<a class="button primary" href="#" title="web-agency auf Xing">
-								<i class="fa fa-xing-square"></i>
-								Xing
-							</a>
-							<a class="button primary" href="#" title="web-agency auf Linkedin">
-								<i class="fa fa-linkedin-square"></i>
-								Linkedin
-							</a>
-						</div>
+							<div id="footer-address">
+								web-agency<br>
+								Musterstrasse 123<br>
+								1234 Musterdorf
+							</div>
+						</address>
+					</div>
+					<div id="footer-social-media" class="column">
+						<h3>Soziale Medien</h3>
+						<p>Erfahren Sie aus erster Hand, was bei uns läuft. Folgen Sie uns in den Sozialen Netzwerken, um immer auf dem neusten Stand zu bleiben.</p>
+						<a class="button primary" href="#" title="web-agency auf Facebook">
+							<i class="fa fa-facebook-square"></i>
+							Facebook
+						</a>
+						<a class="button primary" href="#" title="web-agency auf Instagram">
+							<i class="fa fa-instagram"></i>
+							Instagram
+						</a>
+						<a class="button primary" href="#" title="web-agency auf Flickr">
+							<i class="fa fa-flickr"></i>
+							Flickr
+						</a>
+						<a class="button primary" href="#" title="web-agency auf Xing">
+							<i class="fa fa-xing-square"></i>
+							Xing
+						</a>
+						<a class="button primary" href="#" title="web-agency auf Linkedin">
+							<i class="fa fa-linkedin-square"></i>
+							Linkedin
+						</a>
 					</div>
 				</div>
-				<div id="secondary-footer">
-					<div class="container-full-width">
-						<nav id="footer-menu">
-							<ul>
-								{% for menu in primary_menu %}
-									<li{% if menu.url == url %} class="active"{% endif %}>
-										<a href="{{ menu.url }}" title="{{ menu.title }}">{{ menu.title }}</a>
-									</li>
-								{% endfor %}
-							</ul>
-						</nav>
-						<div id="copyright">
-							Copyright &copy; {{ 'now'|date('Y') }} web-agency. Alle Rechte vorbehalten.
-						</div>
+			</footer>
+			<footer id="footer-secondary">
+				<div class="container-full-width">
+					<nav id="footer-menu">
+						<ul>
+							{% for menu in primary_menu %}
+								<li{% if menu.url == url %} class="active"{% endif %}>
+									<a href="{{ menu.url }}" title="{{ menu.title }}">{{ menu.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</nav>
+					<div id="copyright">
+						Copyright &copy; {{ 'now'|date('Y') }} web-agency. Alle Rechte vorbehalten.
 					</div>
 				</div>
-			{% endblock %}
-		</footer>
+			</footer>
+		{% endblock %}
 		{% block scripts %}
 			<script src="./js/all.js"></script>
 		{% endblock %}
