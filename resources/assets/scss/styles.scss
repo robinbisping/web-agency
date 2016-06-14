@@ -469,12 +469,13 @@ footer {
 	background-position: center;	
 	background-repeat: no-repeat;
 	background-color: $secondary-color;
+	text-align: center;
 	.column {
 		@include span(12 last);
 		margin: 3rem 0;
 	}
 	.links {
-		margin-top: 3rem;
+		margin-top: 2rem;
 	}
 	&.black {
 		@include featured_image_text($black, $white);
@@ -488,15 +489,22 @@ footer {
 		}
 	}
 	@include susy-breakpoint($bp-medium, $susy) {
+		text-align: left;
 		.column {
 			@include span(6 first);
 			margin: 5rem 0;
+		}
+		.links {
+			margin-top: 2.5rem;
 		}
 	}
 	@include susy-breakpoint($bp-large, $susy) {
 		.column {
 			@include span(5 first);
 			margin: 7.5rem 0;
+		}
+		.links {
+			margin-top: 3rem;
 		}
 	}
 }
