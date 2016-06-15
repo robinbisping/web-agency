@@ -53,6 +53,7 @@ $bp-footer: 800px;
 $bp-intro: 700px;
 $bp-intro-lg: 1250px;
 $img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
+$img-server: 'http://www.techdaring.com/wp-content/uploads/2016/03/Datacenter.jpg';
 
 
 // ------------------------------------------------
@@ -130,6 +131,23 @@ h4 {
 p {
 	margin: 0 0 1rem 0;
 	line-height: 1.5;
+}
+p.description {
+	@include span(12 last);
+	line-height: 2;
+	text-transform: uppercase;
+	font-size: 0.875rem;
+	font-weight: bold;
+	letter-spacing: 0.125rem;
+	@include susy-breakpoint($bp-small, $susy) {
+		width: span(8 last);
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		width: span(6 last);
+	}
 }
 address {
 	font-style: normal;
@@ -211,8 +229,8 @@ a {
 	}
 }
 
-// Featured image
-@mixin featured_image_text($foreground-color, $background-color) {
+// Images
+@mixin image_color($foreground-color, $background-color) {
 	color: $foreground-color;
 	text-shadow: 0 0 0.125em rgba($background-color, 0.5);
 	.button {
@@ -220,77 +238,106 @@ a {
 		box-shadow: 0 0 0.125em rgba($background-color, 0.5);
 	}
 }
-.featured-image {
-	min-height: 15rem;
+.image {
 	background-size: cover;
 	background-position: center;	
 	background-repeat: no-repeat;
 	background-color: $secondary-color;
-	.column {
-		@include span(12 last);
-		margin: 3rem 0;
-	}
-	.links {
-		margin-top: 2rem;
-	}
 	&.black {
-		@include featured_image_text($black, $white);
+		@include image_color($black, $white);
 	}
 	&.white {
-		@include featured_image_text($white, $black);
+		@include image_color($white, $black);
 	}
-	@include susy-breakpoint($bp-small, $susy) {
-		text-align: center;
+	&.featured {
+		min-height: 20rem;
 		.column {
-			width: span(9 first);
-			float: none;
-			display: inline-block;
-			margin: 3rem auto;
+			@include span(12 last);
+			margin: 3rem 0;
 		}
 		.links {
-			.button {
-				margin: .33em;
+			margin-top: 2rem;
+		}
+		@include susy-breakpoint($bp-small, $susy) {
+			text-align: center;
+			.column {
+				width: span(9 first);
+				float: none;
+				display: inline-block;
+				margin: 3rem auto;
+			}
+			.links {
+				.button {
+					margin: .33em;
+				}
+			}
+		}
+		@include susy-breakpoint($bp-medium, $susy) {
+			.column {
+				width: span(6 first);
+				margin: 5rem auto;
+			}
+			.links {
+				margin-top: 2.5rem;
+			}
+		}
+		@include susy-breakpoint($bp-large, $susy) {
+			text-align: left;
+			.column {
+				@include span(5 first);
+				margin: 7.5rem 0;
+			}
+			.links {
+				margin-top: 3rem;
+				.button {
+					margin: .33em .66em .33em 0;
+				}
 			}
 		}
 	}
-	@include susy-breakpoint($bp-medium, $susy) {
-		.column {
-			width: span(6 first);
-			margin: 5rem auto;
-		}
-		.links {
-			margin-top: 2.5rem;
-		}
-	}
-	@include susy-breakpoint($bp-large, $susy) {
-		text-align: left;
-		.column {
-			@include span(5 first);
-			margin: 7.5rem 0;
-		}
-		.links {
-			margin-top: 3rem;
-			.button {
-				margin: .33em .66em .33em 0;
-			}
-		}
+	&.full-width {
+		min-height: 20rem;
 	}
 }
-p.description {
-	@include span(12 last);
-	line-height: 2;
-	text-transform: uppercase;
-	font-size: 0.875rem;
-	font-weight: bold;
-	letter-spacing: 0.125rem;
-	@include susy-breakpoint($bp-small, $susy) {
-		width: span(8 last);
-		float: none;
-		margin: 0 auto;
-		text-align: center;
+.pricing-table {
+	margin: 0;
+	padding: 0;
+	border: solid 1px $iron;
+	text-align: center;
+	li {
+		padding: 1em 2em;
+		list-style: none;
 	}
-	@include susy-breakpoint($bp-medium, $susy) {
-		width: span(6 last);
+	.product-name {
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 1.5rem;
+	}
+	.price {
+		width: 100%;
+		content: "";
+		display: table;
+		clear: both;
+		padding: 0;
+		.pay-period, .amount {
+			box-sizing: border-box;
+			float: left;
+			width: 50%;
+		}
+		.pay-period {
+			height: 100%;
+			background-color: $iron;
+		}
+		.amount {
+			padding: .1em .2em;
+			background-color: $primary-color;
+			color: $white;
+			font-size: 2em;
+			font-weight: bold;
+		}
+	}
+	.call-to-action {
+		background-color: $iron;
 	}
 }
 
@@ -483,6 +530,76 @@ header#primary-header {
 			margin: 0;
 		}
 	}
+}
+
+
+// ------------------------------------------------
+// ---------------- PAGE: WEBDESIGN ---------------
+// ------------------------------------------------
+
+#webdesign-all-in-one {
+	.column {
+		@include span(12 last);
+	}
+	.service {
+		position: relative;
+		&:not(:last-child) {
+			margin-bottom: 2em;
+		}
+		i {
+			height: 2.5em;
+			width: 2.5em;
+			border-radius: 1.5em;
+			background-color: $primary-color;
+			text-align: center;
+			color: $white;
+			font-size: 3em;
+			&:before {
+				vertical-align: -.7em;
+			}
+		}
+		span {
+			margin-left: 1.5em;
+			vertical-align: -1.5em;
+		}
+	}
+	@include susy-breakpoint($bp-small, $susy) {
+		text-align: center;
+		.service {
+			display: inline-block;
+			&:not(:last-child) {
+				margin: 0 5em 0 0;
+			}
+			span {
+				display: block;
+				margin: 1em 0 0 0;
+			}
+		}
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		.service {
+			&:not(:last-child) {
+				margin-right: 10em;
+			}
+			i {
+				font-size: 4em;
+			}
+		}
+	}
+}
+
+#webdesign-features {
+	.column {
+		@include span(3);
+	}
+}
+
+#webdesign-infrastructure {
+	background-image: url($img-server);
+}
+
+#webdesign-pricing {
+
 }
 
 

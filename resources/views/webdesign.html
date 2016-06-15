@@ -3,7 +3,7 @@
 {% block title %}Übersicht{% endblock %}
 
 {% block content %}
-<section id="webdesign-intro" class="featured-image black">
+<section id="webdesign-intro" class="image featured black">
 	<div class="container">
 		<div class="column">
 			<h1>
@@ -22,34 +22,65 @@
 		</div>
 	</div>
 </section>
+<section id="webdesign-all-in-one" class="container">
+	<p class="description">Wir kümmern uns um alles – von A bis Z.</p>
+	<div class="column">
+		<div class="service">
+			<i class="fa fa-file-text"></i>
+			<span>Konzeption</span>
+		</div>
+		<div class="service">
+			<i class="fa fa-rocket"></i>
+			<span>Umsetzung</span>
+		</div>
+		<div class="service">
+			<i class="fa fa-gears"></i>
+			<span>Unterhalt</span>
+		</div>
+	</div>
+</section>
 <section id="webdesign-features" class="container">
-	<p class="description">Vier Gründe, die für <a href="{{ base ~ '/team' }}">unsere</a> Webseiten sprechen.</p>
-	<div class="feature">
-		<i></i>
+	<p class="description">Vier Gründe, die für unsere Webseiten sprechen.</p>
+	<div class="column">
 		<h4>Einfache Verwaltung</h4>
 		<p>Für unsere Webseiten setzen wir nur die modernsten und </p>
 	</div>
-	<div class="feature">
-		<i></i>
+	<div class="column">
 		<h4>Mobile-freundliches Design</h4>
-		<p></p>
+		<p>Ihre Webseite soll auf allen Geräten funktionieren und schön aussehen – ob Handy, Tablet oder Computer. Deshalb arbeiten wir konsequent mit responsive Designs, damit sich Ihre Webseite an die jeweiligen Bildschirmgrössen anpasst.</p>
 	</div>
-	<div class="feature">
-		<i></i>
+	<div class="column">
 		<h4>Für Suchmaschinen optimiert</h4>
-		<p></p>
+		<p>Wir optimieren Ihre Webseite für Suchmaschinen, damit Sie auch über Google, Bing und Co. gefunden werden.</p>
 	</div>
-	<div class="feature">
-		<i></i>
-		<h4>Von A bis Z betreut</h4>
+	<div class="column">
+		<h4>Domain und E-Mail</h4>
 		<p></p>
 	</div>
 </section>
-<section id="webdesign-infrastructure">
+<section id="webdesign-infrastructure" class="image full-width white">
+	<div class="container">
 	image with cool slogan
+	</div>
 </section>
 <section id="webdesign-pricing">
-	<p class="description">Kein Geheimnis: Unsere Preise sind transparent.</p>
-	Price table
+	<div class="container">
+		<p class="description">Keine Geheimniskrämerei: Unsere Preise sind transparent.</p>
+		<ul class="pricing-table">
+			<li class="product-name">Basic</li>
+			<li class="price">
+				<div class="pay-period">Einmalig</div>
+				<div class="amount">250 CHF</div>
+			</li>
+			<li>Setup</li>
+			<li>10 Emails</li>
+			<li>10 Domains</li>
+			<li>1GB Bandwidth</li>
+			<li class="call-to-action"><a href="#" class="button primary filled">Sign Up</a></li>
+		</ul>
+	</div>
+</section>
+<section id="webdesign-team">
+Das sind wir. Ihre Ansprechperson
 </section>
 {% endblock %}
