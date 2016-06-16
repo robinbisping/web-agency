@@ -31,9 +31,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 	$r->addRoute('GET', '/webdesign[/]', 'webdesign');
 	$r->addRoute('GET', '/fotografie[/]', 'fotografie');
 	$r->addRoute('GET', '/drucksachen[/]', 'drucksachen');
-	$r->addRoute('GET', '/it[/]', 'it');
 	$r->addRoute('GET', '/offerte[/[{category}[/{product}]]]', 'offerte');
-	$r->addRoute('GET', '/team[/]', 'team');
 	$r->addRoute('GET', '/kitchensink[/]', 'kitchensink');
 }, [
 	'cacheFile' => __DIR__ . '/../storage/route.cache', // Adds cache support
