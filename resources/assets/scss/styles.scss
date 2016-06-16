@@ -72,18 +72,14 @@ body {
 	@include container(100%);
 }
 
-// Resets
-nav {
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+// Section
+section:not(:last-child) {
+	margin-bottom: 7rem;
 }
 
 // Headlines
 h1 {
-	margin: 0 0 2rem 0;
+	margin: 0 0 1.25em 0;
 	font-size: 2rem;
 	@include susy-breakpoint($bp-medium, $susy) {
 		margin: 0 0 2rem 0;
@@ -108,7 +104,7 @@ h2 {
 	}
 }
 h3 {
-	margin: 1rem 0;
+	margin: 0 0 1rem 0;
 	font-size: 1.5rem;
 	font-weight: normal;
 	@include susy-breakpoint($bp-medium, $susy) {
@@ -117,9 +113,10 @@ h3 {
 	}
 }
 h4 {
-	margin: 1.25rem 0;
-	font-size: 1.25rem;
-	font-weight: normal;
+	margin: 0 0 .35em 0;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: $primary-color;
 	@include susy-breakpoint($bp-medium, $susy) {
 	}
 	@include susy-breakpoint($bp-large, $susy) {
@@ -128,11 +125,12 @@ h4 {
 
 // Paragraphs
 p {
-	margin: 0 0 1rem 0;
+	margin: 0;
 	line-height: 1.5;
 }
 p.description {
 	@include span(12 last);
+	margin-bottom: 2em;
 	line-height: 2;
 	text-transform: uppercase;
 	font-size: 0.875rem;
@@ -141,7 +139,7 @@ p.description {
 	@include susy-breakpoint($bp-small, $susy) {
 		width: span(8 last);
 		float: none;
-		margin: 0 auto;
+		margin: 0 auto 3em auto;
 		text-align: center;
 	}
 	@include susy-breakpoint($bp-medium, $susy) {
@@ -228,6 +226,15 @@ a {
 	}
 }
 
+// Lists
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
+
 // Images
 @mixin image_color($foreground-color, $background-color) {
 	color: $foreground-color;
@@ -298,6 +305,8 @@ a {
 		min-height: 20rem;
 	}
 }
+
+// Pricing table
 .pricing-table {
 	@include container;
 	margin: 0;
@@ -672,8 +681,8 @@ footer {
 				margin-bottom: 3rem;
 			}
 		}
-		h3 {
-			margin-top: 0;
+		p {
+			margin-bottom: 1rem;
 		}
 		#footer-address {
 			margin-top: 1rem;
