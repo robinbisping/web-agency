@@ -52,8 +52,8 @@ $bp-footer-lg: 1200px;
 $bp-footer: 800px;
 $bp-intro: 700px;
 $bp-intro-lg: 1250px;
-$img-home-webdesign: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
-
+$img-home: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
+$img-webdesign: 'http://blog.laplink.com/wp-content/uploads/2014/03/man-on-computer.jpg';
 
 // ------------------------------------------------
 // ---------------- GENERAL STYLES ----------------
@@ -529,7 +529,7 @@ header#primary-header {
 
 #home-webdesign {
 	padding-top: 100px;
-	background-image: url($img-home-webdesign);
+	background-image: url($img-home);
 }
 #home-services {
 	padding: 70px 0 100px 0;
@@ -580,6 +580,10 @@ header#primary-header {
 // ------------------------------------------------
 // ---------------- PAGE: WEBDESIGN ---------------
 // ------------------------------------------------
+
+#webdesign-intro {
+	background-image: url($img-webdesign);
+}
 
 #webdesign-all-in-one {
 	.column {
