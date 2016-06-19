@@ -66,15 +66,21 @@ body {
 	color: $black;
 }
 .container {
-	@include container
+	@include container;
 }
 .container-full-width {
 	@include container(100%);
 }
 
 // Section
-section:not(:last-child) {
-	margin-bottom: 7rem;
+section {
+	margin-bottom: 4rem;
+	@include susy-breakpoint($bp-small, $susy) {
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+	}	
 }
 
 // Headlines
@@ -319,6 +325,8 @@ nav {
 	}
 	.product-name {
 		padding: .5em 0;
+		background-color: $black;
+		color: $white;
 		text-transform: uppercase;
 		font-weight: bold;
 		font-size: 1.75em;
@@ -338,7 +346,7 @@ nav {
 	.price {
 		@include span(1 of 2 0 end);
 		padding-top: .15em;
-		background-color: $primary-color;
+		background-color: $secondary-color;
 		color: $white;
 		font-size: 1.75em;
 		font-weight: bold;
@@ -377,10 +385,15 @@ nav {
 	&.primary {
 		.product-name {
 			background-color: $primary-color;
-			color: $white;
+		}
+	}
+	&.secondary {
+		.product-name {
+			background-color: $white;
+			color: $black;
 		}
 		.price {
-			background-color: $secondary-color;
+			background-color: $primary-color;
 		}
 	}
 }
@@ -533,11 +546,6 @@ header#primary-header {
 }
 #home-services {
 	padding: 70px 0 100px 0;
-	#home-services-intro {
-		width: span(6);
-		margin: 0 auto 100px auto;
-		text-align: center;
-	}
 	.service {
 		@include span(4 of 12);
 		h3 {
@@ -638,7 +646,36 @@ header#primary-header {
 
 #webdesign-features {
 	.column {
-		@include span(3);
+		@include span(12 last);
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+	@include susy-breakpoint($bp-small, $susy) {
+		.column {
+			@include span(6);
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+			&:not(:nth-last-child(-n + 2)) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		.column {
+			&:not(:nth-last-child(-n + 2)) {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+	@include susy-breakpoint($bp-large, $susy) {
+		.column {
+			@include span(3);
+			&:not(:nth-last-child(-n + 2)) {
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 
@@ -648,7 +685,16 @@ header#primary-header {
 #webdesign-pricing {
 	.column {
 		@include span(12);
-		margin: 1.5rem 0;
+		//margin: 1.5rem 0;
+		&:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+	}
+	.divider {
+		@include span(12 last);
+		margin-bottom: 3rem;
+		text-align: center;
+		font-size: 2.5rem;
 	}
 	@include susy-breakpoint($bp-small, $susy) {
 		.column {
@@ -656,13 +702,24 @@ header#primary-header {
 		}
 	}
 	@include susy-breakpoint($bp-medium, $susy) {
+		.container {
+			@include container(55rem);
+		}
 		.column {
-			@include span(4);
+			@include span(6);
 		}
 	}
 	@include susy-breakpoint($bp-large, $susy) {
+		.container {
+			@include container;
+		}
 		.column {
 			@include span(3);
+		}
+		.divider {
+			@include span(3);
+			padding-top: 1.5em;
+			font-size: 4rem;
 		}
 	}
 }
