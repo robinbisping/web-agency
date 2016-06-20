@@ -164,7 +164,8 @@ a {
 	border-bottom: solid 1px $silver-sand;
 	text-decoration: none;
 	color: $primary-color;
-	transition: all 50ms linear;
+	transition: color 50ms linear;
+	transition: background-color 50ms linear;
 	&:hover {
 		border-bottom-color: $primary-color;
 	}
@@ -796,7 +797,6 @@ footer {
 	&#footer-secondary {
 		padding: 1.5rem 0;
 		background-color: $ship-grey;
-		font-weight: lighter;
 		nav#footer-menu {
 			@include span(12 last);
 			ul {
