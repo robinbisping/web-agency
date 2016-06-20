@@ -7,14 +7,14 @@ require __DIR__ . '/../vendor/autoload.php';
 Twig_Autoloader::register();
 
 // Load and set up twig environment
-$loader = new Twig_Loader_Filesystem(__DIR__ . '/../resources/views');
+$loader = new Twig_Loader_Filesystem(__DIR__ . '/../src/views');
 $twig = new Twig_Environment($loader, array(
 	'debug' => true, // Disable in production
 	'cache' => false // Enable in production: '../storage' instead of false
 ));
 
 // Add minifying html extension to twig (does only work when twig debugging is disabled)
-$twig->addExtension(new \nochso\HtmlCompressTwig\Extension());
+$twig->addExtension(new \nochso\HtmlCompressTwig\Extension()); // Use: {% htmlcompress %} and {% endhtmlcompress %}
 
 // Fetch method and URI
 $httpMethod = $_SERVER['REQUEST_METHOD'];
