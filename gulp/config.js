@@ -18,6 +18,7 @@ module.exports = {
 		},
 		modules: {
 			node: './node_modules'
-		}
+		},
+		views: './src/views'
 	}
 };
