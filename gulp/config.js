@@ -13,7 +13,7 @@ module.exports = {
 			public: './public/fonts'
 		},
 		images: {
-			assets: './src/assets/images/**/*',
+			assets: './src/assets/images/**/*.{gif,jpg,png,svg}',
 			public: './public/img'
 		},
 		modules: {
