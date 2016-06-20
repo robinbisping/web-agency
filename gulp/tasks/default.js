@@ -1,7 +1,4 @@
 var gulp = require('gulp'),
-	config = require('../config'),
-	sequence = require('run-sequence');
+	config = require('../config');
 
-gulp.task('default', function() {
-	sequence('build', 'serve', 'watch');
-});
+gulp.task('default', ['build', 'serve', 'watch']);

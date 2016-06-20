@@ -27,5 +27,5 @@ gulp.task('styles', function() {
 		}))
 		.pipe(insert.prepend('/*\nThis file is auto-generated.\nDo not edit it or else you will lose changes next time you compile.\n*/\n\n'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(config.paths.styles.public));
+		.pipe(gulp.dest(config.paths.styles.public))
 });
