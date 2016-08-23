@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "breakpoint-sass": "^2.7.0",
+    "browser-sync": "^2.14.0",
     "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
@@ -13,8 +14,8 @@
     "gulp-clean-css": "^2.0.10",
     "gulp-concat": "^2.6.0",
     "gulp-connect-php": "0.0.7",
+    "gulp-header": "^1.8.8",
     "gulp-imagemin": "^3.0.1",
-    "gulp-insert": "^0.5.0",
     "gulp-livereload": "^3.8.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",

@@ -2,15 +2,23 @@ var gulp = require('gulp'),
 	config = require('../config'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	insert = require('gulp-insert'),
+	header = require('gulp-header'),
 	sourcemaps = require('gulp-sourcemaps');
+
+var banner = [
+	'/*',
+	'This file is auto-generated. Do not edit it.',
+	'If you want to know which projects were used for this website, check the file `/packages.txt` out.',
+	'*/',
+	'',
+	''].join('\n');
 
 gulp.task('scripts', function() {
 	return gulp.src(config.paths.scripts.assets)
 		.pipe(sourcemaps.init())
 		.pipe(concat('all.js'))
 		.pipe(uglify())
-		.pipe(insert.prepend('/*\nThis file is auto-generated.\nDo not edit it or else you will lose changes next time you compile.\n*/\n\n'))
+		.pipe(header(banner))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(config.paths.scripts.public));
 });
