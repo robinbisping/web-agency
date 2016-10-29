@@ -1,7 +1,7 @@
 {% extends "layouts/base.layout.html" %}
 
 {% block title %}Übersicht{% endblock %}
-{% block header_class %} class="transparent"{% endblock %}
+{% block header_class %} class="white"{% endblock %}
 
 {% block content %}
 	<section id="home-intro" class="image featured white">
@@ -28,19 +28,19 @@
 	<section id="home-services" class="container">
 		<p class="description">Eine <a href="{{ base ~ '/webdesign' }}">eigene Webseite</a> ist super. Wir wär's aber auch mit tollen Visitenkarten oder gestochen scharfen Fotos?</p>
 		<div class="service">
-			<img src="" />
+			<img src="/img/webdesign.png" />
 			<h3>Webdesign</h3>
 			<p>Eine Webseite hilft Ihnen, im Internet sichtbar zu werden. Unsere Seiten können Sie zudem selbst verwalten – dank einfachen <a href="#" title="Content-Management-System">CMS</a>.</p>
 			<a href="{{ base ~ '/webdesign' }}" class="button">Webdesign</a>
 		</div>
 		<div class="service">
-			<img src="" />
+			<img src="/img/fotografie.png" />
 			<h3>Fotografie</h3>
 			<p>Ob Person oder Unternehmen, Porträt-Fotografie oder Reportage: Wir setzen Sie in Szene. Ihr persönliches Shooting für professionelle Fotos.</p>
 			<a href="{{ base ~ '/fotografie' }}" class="button">Fotografie</a>
 		</div>
 		<div class="service">
-			<img src="" />
+			<img src="/img/drucksachen.jpg" />
 			<h3>Drucksachen</h3>
 			<p>Hinterlassen Sie einen seriösen Eindruck: mit eigenen Vistenkarten und bedruckten Couverts. Oder machen Sie auf sich aufmerksam: mit Flyern und Broschüren.</p>
 			<a href="{{ base ~ '/drucksachen' }}" class="button">Drucksachen</a>
@@ -57,8 +57,15 @@
 	<section id="home-about-us">
 		<div class="container">
 			<p class="description">Jung, dynamisch und kreativ</p>
-			<h3>Das sind wir</h3>
-			<p>Bla bla</p>
+			<div class="team-member" id="robin">
+				<h4>Robin Bisping</h4>
+				<p><i>Informatik Student ETH</i> <br> Meine erste Website erstellte ich bereits 2007.
+			</div>
+			<img id="team-img" src="http://images.freeimages.com/images/premium/previews/1769/17697302-medical-team-of-two-male-caucasian-doctors-young-and-old.jpg" />
+			<div class="team-member" id="michi">
+				<h4>Michi Ganz</h4>
+				<p><i>Elektrotechnik Student ETH</i> <br> Meine erste Website erstellte ich bereits 2009.
+			</div>
 		</div>
 	</section>
 {% endblock %}

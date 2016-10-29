@@ -54,7 +54,7 @@ $bp-intro: 700px;
 $bp-intro-lg: 1250px;
 $img-home: 'http://zuerichfotos.ch/img_big/zurich-uetliberg-heavens-radio-DSC1660-P4_3_3.jpg';
 $img-webdesign: 'http://blog.laplink.com/wp-content/uploads/2014/03/man-on-computer.jpg';
-
+$img-fotografie: 'http://previews.123rf.com/images/stockasso/stockasso1507/stockasso150700044/42512496-Vintage-hipster-wooden-desktop-top-view-with-laptop-vintage-camera-plant-and-touch-screen-tablet-mal-Stock-Photo.jpg';
 // --------------------------------------------------
 // ----------------- GENERAL STYLES -----------------
 // --------------------------------------------------
@@ -335,6 +335,7 @@ nav {
 		text-transform: uppercase;
 		font-weight: bold;
 		font-size: 1.75em;
+		letter-spacing: 5px;
 	}
 	.amount, .price {
 		height: 3rem;
@@ -450,7 +451,7 @@ header#primary-header {
 		}
 		.toggle {
 			float: right;
-			margin: 20px 0;
+			margin: 20px 20px;
 			@include breakpoint($bp-primary-menu) {
 				display: none;
 			}
@@ -473,6 +474,9 @@ header#primary-header {
 				position: static;
 				overflow: visible;
 				background-color: transparent;
+			}
+			li:last-child{
+				margin-right: 40px;
 			}
 			li {
 				@include breakpoint($bp-primary-menu) {
@@ -570,12 +574,14 @@ header#primary-header {
 // --------------------------------------------------
 
 #home-intro {
-	padding-top: 100px;
+	padding-top: 0px;
 	background-image: url($img-home);
 }
 #home-services {
 	.service {
-		@include span(4 of 12);
+		@include span(12);
+		text-align: center;
+		margin-bottom: 50px;
 		img {
 			height: 200px;
 			width: 250px;
@@ -583,6 +589,31 @@ header#primary-header {
 		}
 		p {
 			margin-bottom: .5em;
+		}
+	}
+	@include susy-breakpoint($bp-small, $susy) {
+		.service{
+			text-align: left;
+			float: left;
+			margin-bottom: 0;
+			img{
+				float: left;
+				margin-right: 20px;
+			}
+			h3{
+				margin-top: 20px;
+			}
+
+		}
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		.service {
+			@include span(4 of 12);
+			img{
+				float: none;
+				margin-right: 0;
+			}
+			
 		}
 	}
 }
@@ -599,8 +630,103 @@ header#primary-header {
 	}
 }
 #home-about-us {
+	.team-member{
+		@include span(12);
+	}
+	h4{
+		font-size: 1.5em;
+		letter-spacing: 3px;
+	}
+	img{
+		@include span(12);
+	}
+	@include susy-breakpoint($bp-small, $susy){
+		.team-member{
+			@include span(3 of 12);
+			margin-top: 10%;
+		}
+		img{
+			@include span(6 of 12);
+		}
+	}
 }
 
+// --------------------------------------------------
+// ---------------- PAGE: FOTOGRAFIE ----------------
+// --------------------------------------------------
+
+#fotografie-intro {
+	background-image: url($img-fotografie);
+}
+
+#fotografie-services {
+	.service {
+		@include span(12);
+		text-align: center;
+		margin-bottom: 50px;
+		img {
+			width: 100%;
+			margin-bottom: 1em;
+		}
+		p {
+			margin-bottom: .5em;
+		}
+	}
+	@include susy-breakpoint($bp-small, $susy) {
+		.service{
+			text-align: left;
+			float: left;
+			margin-bottom: 0;
+			img{
+				width: 250px;
+				float: left;
+				margin-right: 20px;
+			}
+			h3{
+				margin-top: 20px;
+			}
+
+		}
+	}
+	@include susy-breakpoint($bp-medium, $susy) {
+		.service {
+			@include span(4 of 12);
+			img{
+				width: 100%;
+				float: none;
+				margin-right: 0;
+			}
+			
+		}
+	}
+}
+
+#fotografie-samples {
+	background-color: $secondary-color;
+	padding: 50px 0;
+	text-align: center;
+	img {
+		height: 70px;
+		width: 180px;
+		&:not(:last-child) {
+			margin-right: 50px;
+		}
+	}
+}
+
+#fotografie-ansprechsperson {
+	max-width: 1000px;
+	.team-member{
+		@include span( 4 of 12);
+		margin-top: 8%;
+	}
+	.img{
+		@include span(8 of 12);
+	}
+	p{
+		margin-bottom: 10px;
+	}
+}
 
 // --------------------------------------------------
 // ---------------- PAGE: WEBDESIGN -----------------

@@ -23,7 +23,8 @@ gulp.task('styles', function() {
 				config.paths.modules.node + '/normalize.css',
 				config.paths.modules.node + '/breakpoint-sass/stylesheets',
 				config.paths.modules.node + '/susy/sass',
-				config.paths.modules.node + '/font-awesome/scss'
+				config.paths.modules.node + '/font-awesome/scss',
+				config.paths.modules.node + '/lightbox2/dist/css/lightbox.css'
 			]
 		}))
 		.pipe(concat('all.css'))

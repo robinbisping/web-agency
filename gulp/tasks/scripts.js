@@ -14,7 +14,7 @@ var banner = [
 	''].join('\n');
 
 gulp.task('scripts', function() {
-	return gulp.src(config.paths.scripts.assets)
+	return gulp.src([config.paths.modules.node + "/lightbox2/dist/js/lightbox-plus-jquery.js", config.paths.scripts.assets])
 		.pipe(sourcemaps.init())
 		.pipe(concat('all.js'))
 		.pipe(uglify())
