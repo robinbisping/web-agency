@@ -1,4 +1,4 @@
-# Gulp Basic Setup
+# Web Agency
 
 ## Voraussetzungen
 Um dieses Paket zu installieren, benötigst du [Node.js](https://nodejs.org/) und [NPM](https://www.npmjs.com/). Am einfachsten installierst du beides zusammen über den Node.js-Installer, den du auf [nodejs.org](https://nodejs.org/) herunterladen kannst. Nimm doch die neuste Version – ich arbeite auch mit der, dann gibt es am wenigsten Probleme. Upgrade anschliessend NPM über die Kommandozeile.
