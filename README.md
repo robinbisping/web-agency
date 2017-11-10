@@ -1,5 +1,7 @@
 # Web Agency
 
+_This project has been archived._
+
 This package provides a modern and easy approach of an environment for frontend website development. It is based on common technologies, such as:
 
 - [Browsersync](https://www.browsersync.io/)
