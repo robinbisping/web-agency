@@ -1,6 +1,6 @@
-# Web Agency
-
 _This project has been archived._
+
+# Web Agency
 
 This package provides a modern and easy approach of an environment for frontend website development. It is based on common technologies, such as:
 
